@@ -49,11 +49,17 @@ if ($method === 'POST') {
         require_once 'actions/user_actions.php';
         handleCreateUser($pdo, $input);
         break;
+      case 'create_term':
+        require_once 'actions/term_actions.php';
+        handle_create_term ($pdo, $input);
       case 'get_users':
         // Dedizierte Datei für das Laden der Benutzerliste
         require_once 'actions/get_users.php';
         handleGetUsers($pdo); 
         break;
+      case 'get_terms':
+        require_once 'actions/get_terms.php';
+        handle_get_terms ($pdo);
       default:
         arthos_log("Fehler: Unbekannte Action: " . $action);
         echo json_encode([

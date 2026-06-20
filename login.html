@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmelden</title>
+    <!-- Hier wird die ausgelagerte CSS-Datei verknüpft -->
+    <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Ein dezentes Logo oder eine Überschrift -->
+        <div class="login-header">
+            <h2>Willkommen zurück</h2>
+            <p>Bitte melden Sie sich an, um fortzufahren.</p>
+        </div>
+
+        <!-- Das Login-Formular -->
+        <form action="login-process.php" method="POST">
+            
+            <!-- Eingabefeld: E-Mail / Benutzername -->
+            <div class="input-group">
+                <label for="username">E-Mail oder Benutzername</label>
+                <input type="text" id="username" name="username" required autocomplete="username" placeholder="name@beispiel.de">
+            </div>
+
+            <!-- Eingabefeld: Passwort -->
+            <div class="input-group">
+                <label for="password">Passwort</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="••••••••">
+            </div>
+
+            <!-- Der Anmelde-Button -->
+            <button type="submit" class="btn-submit">Anmelden</button>
+
+        </form>
+
+        <!-- Ein unaufdringlicher Fußbereich für optionale Links -->
+        <div class="login-footer">
+            <a href="#">Passwort vergessen?</a>
+        </div>
+    </div>
+
+</body>
+</html>
+
