@@ -1,9 +1,9 @@
 <?php
 
-function arthos_log ($message, $data = null) 
+function log_message ($message, $level = 'info') 
 {
   // Log-Datei im selben Verzeichnis (oder einem dedizierten /logs/ Ordner)
-  $logFile = __DIR__ . '/person_id_debug.log';
+  $logFile = __DIR__ . '/person_id.log';
     
   $timestamp = date ('Y-m-d H:i:s');
     
@@ -19,5 +19,18 @@ function arthos_log ($message, $data = null)
     
   // Sicherstellen, dass in die Datei geschrieben werden darf
   file_put_contents ($logFile, $logEntry, FILE_APPEND);
+}
+
+function create_mapping ($file_path)
+{
+  $handle = fopen ($file_path, "r");
+
+  $return_value = [];
+  
+  if (!$handle) {
+  }
+
+  
+
 }
 

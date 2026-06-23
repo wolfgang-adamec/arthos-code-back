@@ -1,10 +1,10 @@
 <?php
-  require_once __DIR__ . '/helper_fun.php';
+  require_once 'helper_fun.php';
 
-  arthos_log ("-----------------------");
-  arthos_log ("Neuer Aufruf gestartet.");
+  log_message ("-----------------------", "info");
+  log_message ("Neuer Aufruf.",           "info");
 
-  $dom = new DOMDocument();
+  $xml_obj = parse_xml ("falcone.xml");
   
   $dom->load ('falcone.xml');
   if (!$dom) {
@@ -15,7 +15,7 @@
   // Das Haupt-Element <person> wird geholt.
   $person = $dom->getElementsByTagName('person')->item(0);
 
-  athos_log ("nach person";
+  log_message ("nach person", "info");
 
   if ($person) {
     // Wir gehen Schritt für Schritt durch jedes Kind-Element (Tags im Inneren)
