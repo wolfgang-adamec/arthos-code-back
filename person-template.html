@@ -1,128 +1,64 @@
 <!DOCTYPE html>
-
 <html lang="de">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Historisches Profil: Giovanni Falcone</title>
-
-    <link rel="stylesheet" href="person-style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historisches Profil: Giovanni Falcone</title>
+  <link rel="stylesheet" href="person-style.css">
 </head>
 
 <body>
-
-
-
-    <div class="profile-card">
-
-        <!-- Header -->
-
-        <div class="profile-header">
-
-            <span class="public-id">Public ID: {{public_id}}</span>
-
-            <h1>{{first_name}} {{last_name}}</h1>
-
-            <span class="domain-badge">Domain: {{domain}}</span>
-
-        </div>
-
-
-
-        <!-- Body -->
-
-        <div class="profile-body">
-
-            
-
-            <!-- Vermächtnis -->
-
-            <div class="section-title">Core Achievement / Legacy</div>
-
-            <div class="legacy-box">
-
-                <p class="legacy-text">{{core_achievement}}</p>
-
-            </div>
-
-
-
-            <!-- Lebensdaten -->
-
-            <div class="section-title">Biographical Dates</div>
-
-            <div class="info-grid">
-
-                <div class="info-item">
-
-                    <span class="info-label">Date of Birth</span>
-
-                    <span class="info-value">{{date_of_birth}}</span>
-
-                </div>
-
-                <div class="info-item">
-
-                    <span class="info-label">Date of Death</span>
-
-                    <span class="info-value">{{date_of_death}}</span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Familiendaten -->
-
-            <div class="section-title">Family Lineage</div>
-
-            <div class="info-grid">
-
-                <div class="info-item">
-
-                    <span class="info-label">Mother</span>
-
-                    <span class="info-value">{{mother_first_name}} {{mother_last_name}}</span>
-
-                </div>
-
-                <div class="info-item">
-
-                    <span class="info-label">Father</span>
-
-                    <span class="info-value">{{father_first_name}} {{father_last_name}}</span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Historisches Hauptzeugnis -->
-
-            <div class="section-title">Defining Evidence / Primary Source</div>
-
-            <div class="evidence-box">
-
-                <p class="evidence-text">{{evidence}}</p>
-
-            </div>
-
-
-
-        </div>
-
+  <div class="profile-card">
+    <!-- Header -->
+    <div class="profile-header">
+      <span class="public-id">Public ID: {{public_id}}</span>
+      <h1>{{first_name}} {{last_name}}</h1>
+      <span class="domain-badge">Domain: {{domain}}</span>
     </div>
 
+    <!-- Body -->
+    <div class="profile-body">           
+      <!-- Vermächtnis -->
+      <div class="section-title">Core Achievement / Legacy</div>
+      <div class="legacy-box">
+        <p class="legacy-text">{{core_achievement}}</p>
+      </div>
 
+      <!-- Lebensdaten -->
+      <div class="section-title">Biographical Dates</div>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Date of Birth</span>
+          <span class="info-value">{{date_of_birth}}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Date of Death</span>
+          <span class="info-value">{{date_of_death}}</span>
+        </div>
+      </div>
+
+      <!-- Familiendaten -->
+      <div class="section-title">Family Lineage</div>
+      <div class="info-grid">	  
+        <div class="info-item">
+          <span class="info-label">Mother</span>
+          <span class="info-value">{{mother_first_name}} {{mother_last_name}}</span>
+        </div>
+		<div class="info-item">
+          <span class="info-label">Father</span>
+          <span class="info-value">{{father_first_name}} {{father_last_name}}</span>
+        </div>
+      </div>
+
+      <!-- Historisches Hauptzeugnis -->
+      <div class="section-title">Defining Evidence / Primary Source</div>
+      <div class="evidence-box">
+        <p class="evidence-text">{{evidence}}</p>
+      </div>
+
+    </div>
+  </div>
 
 </body>
-
 </html>
 

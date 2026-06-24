@@ -4,7 +4,7 @@
   log_message ("-----------------------", "info");
   log_message ("Neuer Aufruf.",           "info");
 
-  $xml_obj = parse_xml ("falcone.xml");
+  $placeholder_data = create_mapping ("falcone.art");
   
   $dom->load ('falcone.xml');
   if (!$dom) {
