@@ -61,7 +61,54 @@ function get_hash_name ($str_line)
   return $str_result;
 }
 
-$str_name = get_hash_name ($str_line);  
+/******************************************************************************************
+ * Return: string | false.                                                                *                                                                                       *
+ ******************************************************************************************/
+function get_hash_value ($handle)
+{ 
+  $bool_start     = true;
+  $int_pos        = 0;
+  $str_hash_value = "";
+  $str_line       = "";
+  
+  while (true) {
+    $str_line = fgets ($handle); // ret.: str./false.
+	if ($str_line === false) {
+	  log_message ("get_hash_value.fgets", "error");
+      return false;			
+	}	
+	
+	#value-end  
+	$int_pos = strpos ($str_line, "#value-end"); // ret.: int/false.
+	if ($int_pos === false) {
+	  $str_line = trim ($str_line);
+	  if ($bool_start === false) {
+		$str_hash_value .= " ";
+	  }
+	  else {
+		$bool_start = false;
+	  }
+	  $str_hash_value .= str_line;
+	}
+    else {
+	  return $str_hash_value;	
+	}
+  } // while
+
+}
+
+/******************************************************************************************
+ *                                                                                        *                                                                                       *
+ ******************************************************************************************/
+function log_mapping ($mapping)
+{
+  $log_line = "";
+  
+  foreach ($mapping as $name => $value) {
+    $log_line .= "{$name}: {$value}\n";	  
+  }
+  log_message ($log_line, "info");
+}
 
 /******************************************************************************************
  * Return: Mapping (Ass. Array) | false.                                                  *                                                                                       *
@@ -77,6 +124,7 @@ function create_mapping ($file_path)
   $int_str_len   = 0;
   $str_line      = "";
   $str_name      = "";
+  $str_name_ext  = "";
   $str_value     = "";
   
   $bool_result = file_exists ($file_path);
@@ -122,6 +170,7 @@ function create_mapping ($file_path)
 	}
 	$str_line = rtrim ($str_line);
 
+    // Das ist die Abbruchsbedingung.
 	$int_pos = strpos ($str_line, "#data-end"); // ret.: int/false.
 	if ($int_pos === false) {
 	  $int_dummy = 0;	
@@ -132,21 +181,23 @@ function create_mapping ($file_path)
 	  }	
 	}
 	
-	$bool_result = str_contains ($str_line, '|') // ret.: bool.
+	$bool_result = str_contains ($str_line, '|'); // ret.: bool.
 	if ($bool_result === true) {
-	  $arr_parts = explode ("|", $str_line, 2);
-      $str_name  = trim ($arr_parts [0]);	  
-	  $str_value = trim ($arr_parts [1]);	  
-	  $arr_ret_value [$str_name] = $str_value;
+	  $arr_parts    = explode ("|", $str_line, 2);
+      $str_name     = trim ($arr_parts [0]);	  
+	  $str_name_ext = "{{" . $str_name . "}}";         	  
+	  $str_value    = trim ($arr_parts [1]);	  	  
+	  $arr_ret_value [$str_name_ext] = $str_value;
 	}
     else {
 	  // evidence#value-start
 	  $bool_result = str_check_hash ($str_line); // ret.: bool.
 	  if ($bool_result === true) {
-		$str_name = get_hash_name ($str_line);  
+		$str_name  = get_hash_name ($str_line);  
+		$str_value = get_hash_value ($handle);
+        $arr_ret_value [$str_name] = $str_value;
 	  }
-    }		
-	
+    }			
 	
   } // while	  
 
