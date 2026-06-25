@@ -9,6 +9,7 @@
   
   if ($data_map === false) {
 	log_message ("main.create_mapping", "error");	
+	exit;
   }	  
   
   log_message ("nach create_mapping", "info");

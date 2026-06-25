@@ -3,7 +3,7 @@
 /******************************************************************************************
  *                                                                                        *
  ******************************************************************************************/
-function log_message ($message, $level = 'info') 
+function log_message ($message, $level) 
 {
   // Log-Datei im selben Verzeichnis (oder einem dedizierten /logs/ Ordner)
   $logFile = __DIR__ . '/person_id.log';
@@ -18,7 +18,7 @@ function log_message ($message, $level = 'info')
   //  $dataString = str_replace(array("\r", "\n"), " ", $dataString);
   //}
     
-  $logEntry = "[$timestamp] $message\n";
+  $logEntry = "[$timestamp] [$level] $message\n";
     
   // Sicherstellen, dass in die Datei geschrieben werden darf
   file_put_contents ($logFile, $logEntry, FILE_APPEND);
@@ -51,12 +51,16 @@ function get_hash_name ($str_line)
   
   $bool_result = str_check_hash ($str_line);
   if ($bool_result === false) {
+	log_message ("get_hash_name.check_hash", "error");
 	return false;
   }   
  
   // evidence#value-start (8).
   $int_pos    = strpos ($str_line, "#value-start"); // ret.: int/false.
   $str_result = substr ($str_line, 0, $int_pos);  
+
+  log_message ("hash name", "info");
+  log_message ($str_result, "info");
 
   return $str_result;
 }
@@ -136,7 +140,7 @@ function create_mapping ($file_path)
   
   $handle = fopen ($file_path, "r"); // ret.: resource/false.
   
-  if (!$handle === false) {
+  if ($handle === false) {
 	log_message ("create_mapping.fopen", "error");
     return false;	
   }
@@ -149,14 +153,16 @@ function create_mapping ($file_path)
       return false;			
 	}	
 	
+	log_message ("create_mapping.header_line", "info");
+	log_message ($str_line, "info");
+	
 	$int_pos = strpos ($str_line, "#data-start"); // ret.: int/false.
 	if ($int_pos === false) {
 	  $int_dummy = 0;	
 	}
     else {
-	  if ($result === 0) {
-	    break;
-	  }	
+      log_message ("Punkt erreicht", "info");
+	  break;
 	}
   }
 
@@ -176,9 +182,8 @@ function create_mapping ($file_path)
 	  $int_dummy = 0;	
 	}
     else {
-	  if ($result === 0) {
-	    break;
-	  }	
+      log_message ("Datei-Ende erreicht", "info");		
+	  break;	  	
 	}
 	
 	$bool_result = str_contains ($str_line, '|'); // ret.: bool.
@@ -188,14 +193,21 @@ function create_mapping ($file_path)
 	  $str_name_ext = "{{" . $str_name . "}}";         	  
 	  $str_value    = trim ($arr_parts [1]);	  	  
 	  $arr_ret_value [$str_name_ext] = $str_value;
+	  
+	  log_message ("Pipe: {$str_name} {$str_value}", "info");		
 	}
     else {
 	  // evidence#value-start
 	  $bool_result = str_check_hash ($str_line); // ret.: bool.
 	  if ($bool_result === true) {
-		$str_name  = get_hash_name ($str_line);  
-		$str_value = get_hash_value ($handle);
-        $arr_ret_value [$str_name] = $str_value;
+        log_message ("Hash start", "info");				  
+		
+		$str_name     = get_hash_name ($str_line);  
+		$str_name_ext = "{{" . $str_name . "}}";         	  
+		$str_value    = get_hash_value ($handle);
+        $arr_ret_value [$str_name_ext] = $str_value;
+		
+		log_message ("Hash: {$str_name} {$str_value}", "info");		
 	  }
     }			
 	
