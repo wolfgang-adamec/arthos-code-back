@@ -1,0 +1,20 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#author: Wolfgang Adamec                                                                   #
+#date: 2026/06/25                                                                          #
+#license: abc                                                                              #
+#header-end#################################################################################
+#data-start
+public_id|1.1
+#comment: This is the iso 693-3 code for the language.
+lang|deu
+#comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
+value|vater
+#comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
+value_detail|biologischer vater
+#comment: Die Definition ist in dieser Version noch recht "mathematisch".
+definition_short|Dieses Lexem ist Teil der Begriffe, die Verwandtschaftsverhältnisse ausdrücken, ...
+definition_log#value-start
+  ..
+#value-end  
+#data-end

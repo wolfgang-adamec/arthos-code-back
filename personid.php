@@ -13,7 +13,7 @@
   
   log_message ("ID: {$str_id}", "info");
   $str_id    = str_replace (".", "_", $str_id);  
-  $file_name = $str_id . ".art";
+  $file_name = "person_" . $str_id . ".art";
   
   $data_map = create_mapping ($file_name); 
   log_mapping ($data_map);  

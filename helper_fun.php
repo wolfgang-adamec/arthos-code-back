@@ -185,10 +185,7 @@ function create_mapping ($file_path)
 	log_message ($str_line, "info");
 	
 	$int_pos = strpos ($str_line, "#data-start"); // ret.: int/false.
-	if ($int_pos === false) {
-	  $int_dummy = 0;	
-	}
-    else {
+	if ($int_pos !== false) {
       log_message ("Punkt erreicht", "info");
 	  break;
 	}
@@ -204,12 +201,15 @@ function create_mapping ($file_path)
 	}
 	$str_line = rtrim ($str_line);
 
+    // Kommentare werden einfach überlesen.
+	$int_pos = strpos ($str_line, "#comment:"); // ret.: int/false.
+	if ($int_pos !== false) {
+      continue;	  	
+	}
+	
     // Das ist die Abbruchsbedingung.
 	$int_pos = strpos ($str_line, "#data-end"); // ret.: int/false.
-	if ($int_pos === false) {
-	  $int_dummy = 0;	
-	}
-    else {
+	if ($int_pos !== false) {
       log_message ("Datei-Ende erreicht", "info");		
 	  break;	  	
 	}
