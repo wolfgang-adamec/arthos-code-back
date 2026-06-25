@@ -4,7 +4,18 @@
   log_message ("-----------------------", "info");
   log_message ("Neuer Aufruf.",           "info");
 
-  $data_map = create_mapping ("falcone.art"); 
+  $str_id = query_str_has_value ($_GET); // false/str.
+  
+  if ($str_id === false) {
+	log_message ("main.query_str", "error");	
+	exit;
+  } 
+  
+  log_message ("ID: {$str_id}", "info");
+  $str_id    = str_replace (".", "_", $str_id);  
+  $file_name = $str_id . ".art";
+  
+  $data_map = create_mapping ($file_name); 
   log_mapping ($data_map);  
   
   if ($data_map === false) {

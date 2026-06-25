@@ -75,6 +75,8 @@ function get_hash_value ($handle)
   $str_hash_value = "";
   $str_line       = "";
   
+  log_message ("get_hash_value.start", "info");
+  
   while (true) {
     $str_line = fgets ($handle); // ret.: str./false.
 	if ($str_line === false) {
@@ -85,6 +87,9 @@ function get_hash_value ($handle)
 	#value-end  
 	$int_pos = strpos ($str_line, "#value-end"); // ret.: int/false.
 	if ($int_pos === false) {
+	  log_message ("hash-data", "info");	
+	  log_message ($str_line, "info");	
+	  
 	  $str_line = trim ($str_line);
 	  if ($bool_start === false) {
 		$str_hash_value .= " ";
@@ -92,13 +97,36 @@ function get_hash_value ($handle)
 	  else {
 		$bool_start = false;
 	  }
-	  $str_hash_value .= str_line;
+	  $str_hash_value .= $str_line;
 	}
     else {
+      log_message ("hash_value", "info");
+	  log_message ($str_hash_value, "info");
+	  
 	  return $str_hash_value;	
 	}
   } // while
 
+}
+
+
+/******************************************************************************************
+ *                                                                                        *                                                                                       *
+ ******************************************************************************************/
+function query_str_has_value ($arr_query_str)
+{
+  $bool_result = false;
+  $str_return  = "";  
+   
+  $bool_result = array_key_exists ("id", $arr_query_str);
+  
+  if ($bool_result === false) {
+    return false;
+  }
+  
+  $str_return = $arr_query_str ["id"];
+  
+  return $str_return;
 }
 
 /******************************************************************************************
@@ -204,7 +232,13 @@ function create_mapping ($file_path)
 		
 		$str_name     = get_hash_name ($str_line);  
 		$str_name_ext = "{{" . $str_name . "}}";         	  
-		$str_value    = get_hash_value ($handle);
+		$str_value    = get_hash_value ($handle); // ret: str/false.
+		
+		if ($str_value === false) {
+		  log_message ("create_mapping.hash-value", "error");
+		  return false;
+		}
+		
         $arr_ret_value [$str_name_ext] = $str_value;
 		
 		log_message ("Hash: {$str_name} {$str_value}", "info");		

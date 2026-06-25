@@ -1,0 +1,19 @@
+Person,Ebene 1: Hauptkategorie,Ebene 2: Archetyp („Wofür er stand“),Resultat / Profil
+Bruno Kreisky,Politik & Staatsführung,Reformer / Systemerneuerer,Ein gestaltender Reformpolitiker.
+Giovanni Falcone,Recht & Justiz,Widerstandskämpfer / Systembewahrer,Ein Justizbeamter im existenziellen Widerstand.
+Mahatma Gandhi,Gesellschaft & Soziale Modelle,Moralisch-spiritueller Transformator,Ein sozialer Transformator mit politischer Hebelwirkung.
+Marshall Rosenberg,Gesellschaft & Soziale Modelle,Grenzgänger / Vordenker,Ein Vordenker für neue Formen des menschlichen Umgangs.
+Martin Luther,Religion & Geistliches Leben,Reformer / Systemerneuerer,Ein religiöser Erneuerer mit gesellschaftlicher Sprengkraft.
+Albert Einstein,Wissenschaft & Erkenntnis,Grenzgänger / Vordenker,Ein wissenschaftlicher Grenzgänger.
+
+Person,Ebene 1: Hauptkategorie,Ebene 2: Archetyp („Wofür er stand“),Resultat / Profil
+Bruno Kreisky,Politik & Staatsführung,Reformer / Systemerneuerer,Ein gestaltender Reformpolitiker.
+Giovanni Falcone,Recht & Justiz,Widerstandskämpfer / Systembewahrer,Ein Justizbeamter im existenziellen Widerstand.
+Mahatma Gandhi,Gesellschaft & Soziale Modelle,Moralisch-spiritueller Transformator,Ein sozialer Transformator mit politischer Hebelwirkung.
+Marshall Rosenberg,Gesellschaft & Soziale Modelle,Grenzgänger / Vordenker,Ein Vordenker für neue Formen des menschlichen Umgangs.
+Martin Luther,Religion & Geistliches Leben,Reformer / Systemerneuerer,Ein religiöser Erneuerer mit gesellschaftlicher Sprengkraft.
+Albert Einstein,Wissenschaft & Erkenntnis,Grenzgänger / Vordenker,Ein wissenschaftlicher Grenzgänger.
+
+legal 1
+theology / religion 2
+psych 3
