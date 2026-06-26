@@ -1,0 +1,26 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#author: Wolfgang Adamec                                                                   #
+#date: 2026/06/25                                                                          #
+#license: abc                                                                              #
+#header-end#################################################################################
+#data-start
+public_id|1.2
+first_name|Mahatma (Mohandas Karamchand)
+last_name|Gandhi
+#comment: Das ist ein Kommentar.
+domain|Legal
+date_of_birth|2. Oktober 1869
+date_of_death|30. Januar 1948
+mother_first_name|Putlibai
+mother_last_name|Gandhi
+father_first_name|Karamchand
+father_last_name|Gandhi
+core_achievement|Gewaltfreier Widerstand für die Unabhängigkeit Indiens (Satyagraha).
+evidence#value-start
+  Salt March (Salzmarsch von 1930): Eine der bedeutendsten Kampagnen des zivilen Ungehorsams, bei der Gandhi 
+  gemeinsam mit tausenden Anhängern über 380 Kilometer zum Meer marschierte, um gegen das britische Salzmonopol 
+  zu protestieren. Dieses historische Ereignis und die darauf folgenden Massenverhaftungen wurden weltweit 
+  medial dokumentiert und bewiesen unumstößlich die moralische Hebelwirkung seines gewaltfreien Kampfes.
+#value-end  
+#data-end

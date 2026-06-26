@@ -1,0 +1,26 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#author: Wolfgang Adamec                                                                   #
+#date: 2026/06/25                                                                          #
+#license: abc                                                                              #
+#header-end#################################################################################
+#data-start
+public_id|3.1
+first_name|Marshall Bertram
+last_name|Rosenberg
+domain|Psychology
+date_of_birth|6. Oktober 1934
+date_of_death|7. Februar 2015
+mother_first_name|Jean
+mother_last_name|Rosenberg
+father_first_name|Fred
+father_last_name|Rosenberg
+core_achievement|Entwicklung der Gewaltfreien Kommunikation (GFK) und weltweite Konfliktmediation.
+evidence#value-start
+  Gründung des Center for Nonviolent Communication (CNVC, 1984): Durch diese internationale 
+  Organisation wurde die Methode der GFK weltweit institutionalisiert. Ein historisch greifbares 
+  Zeugnis seiner Hebelwirkung sind zudem seine dokumentierten Friedensmediationen in Krisengebieten 
+  wie Ruanda, Kroatien und Israel/Palästina, bei denen er verfeindete Gruppen mittels der vier 
+  Schritte (Beobachtung, Gefühl, Bedürfnis, Bitte) zu friedlichen Lösungen führte.
+#value-end  
+#data-end
