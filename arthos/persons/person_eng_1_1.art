@@ -1,0 +1,24 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#author: Wolfgang Adamec                                                                   #
+#date: 2026/06/23                                                                          #
+#license: abc                                                                              #
+#header-end#################################################################################
+#data-start
+public_id|1.1
+first_name|Giovanni
+last_name|Falcone
+domain|Legal
+date_of_birth|18. Mai 1939
+date_of_death|23. Mai 1992
+mother_first_name|Luisa
+mother_last_name|Falcone
+father_first_name|Arturo
+father_last_name|Falcone
+core_achievement|Kampf gegen die Mafia.
+evidence#value-start
+  Maxiprocesso di Palermo (1986–1992): Der Mammut-Prozess, bei dem Falcone als führender Ermittlungsrichter der Anklage hunderte Mitglieder der Cosa Nostra 
+  hinter Gitter brachte und damit die Existenz der kriminellen Organisation gerichtlich unumstößlich bewies.
+#value-end  
+#data-end
+

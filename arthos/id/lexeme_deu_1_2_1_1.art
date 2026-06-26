@@ -1,0 +1,23 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  lexeme_deu_1_2_1_1.art                                                         #
+#author:    Wolfgang Adamec                                                                #
+#date:      2026/06/25                                                                     #
+#license:   abc                                                                            #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+#data-start
+#comment: "1" ... nouns, "2" ... relational terms, "1" ... kinship terms.
+public_id|1.2.1.1
+#comment: This is the iso 639-3 code for the language.
+lang|deu
+#comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
+value|vater
+#comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
+value_detail|biologischer vater
+#comment: Die Definition ist in dieser Version noch recht "mathematisch".
+definition_short|Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis, eines das den Samenspender für ein Kind angibt.
+definition_log#value-start
+  ..
+#value-end  
+#data-end
