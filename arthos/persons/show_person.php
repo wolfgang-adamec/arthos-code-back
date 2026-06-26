@@ -1,10 +1,12 @@
 <?php
-  /********************************************************************************
-   * Dokument: show_person.php                                                    *
-   * Author:   Wolfgang Adamec.                                                   *
-   * Date:     2026-06-26.                                                        *
-   * License:  abc                                                                *
-   ********************************************************************************/          
+
+/*******************************************************************************
+ * Dokument: show_person.php.                                                  *
+ * Author:   Wolfgang Adamec.                                                  *
+ * Date:     2026-06-26.                                                       *
+ * License:  Apache 2.0.                                                       *
+ * Encoding: ANSI.                                                             *
+ *******************************************************************************/          
   $str_id = "";
   $str_lang = ""; 
 
@@ -13,9 +15,9 @@
   log_message ("-----------------------", "info");
   log_message ("New call.",               "info");
 
-  $str_sapi_name = php_sapi_name();
+  $str_sapi_name = php_sapi_name ();
   if ($str_sapi_name === "cli") {
-    $_GET["id"] = "1.1";
+    $_GET["id"]   = "1.1";
     $_GET["lang"] = "deu";
   }
 

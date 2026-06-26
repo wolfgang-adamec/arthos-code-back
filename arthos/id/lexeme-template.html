@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexem: {{VALUE}} ({{LANG}})</title>
+    <!-- Hier wird dein bestehendes CSS-File geladen, ohne dass du es anpassen musst -->
+    <link rel="stylesheet" href="person-style.css">
+</head>
+<body>
+
+    <main class="profile-card">
+        
+        <!-- HEADER-BEREICH: Analog zum Personennamen nun der Hauptbegriff und die Sprache -->
+        <header class="profile-header">
+            <div class="meta-badge">ID: {{PUBLIC_ID}}</div>
+            <h1 class="person-name">{{VALUE}}</h1>
+            <!-- value_detail verhält sich wie ein Untertitel, analog zur "Domain" bei Personen -->
+            <p class="person-title">{{VALUE_DETAIL}}</p>
+        </header>
+
+        <!-- DETAIL-GRID: Nutzt exakt dieselbe Spalten-Logik deines bestehenden CSS -->
+        <section class="profile-details">
+            
+            <div class="detail-group">
+                <span class="detail-label">Sprachcode (ISO 639-3)</span>
+                <span class="detail-value">{{LANG}}</span>
+            </div>
+
+            <div class="detail-group">
+                <span class="detail-label">Kurzdefinition</span>
+                <span class="detail-value">{{DEFINITION_SHORT}}</span>
+            </div>
+
+        </section>
+
+        <!-- EVIDENCE-BLOCK: Das "core_achievement" und das "evidence" weichen dem Beispielsatz -->
+        <footer class="profile-evidence">
+            <h2 class="evidence-title">Beispielsatz (Context & Usage)</h2>
+            <blockquote class="evidence-text">
+                „{{EXAMPLE_SENTENCE}}“
+            </blockquote>
+        </footer>
+
+    </main>
+
+</body>
+</html>

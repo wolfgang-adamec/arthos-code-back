@@ -1,9 +1,9 @@
 ####arthos-data/arthos-enc/1.0####
 #header-start###############################################################################
-#dokument:  lexeme_deu_1_2_1_1.art                                                         #
-#author:    Wolfgang Adamec                                                                #
-#date:      2026/06/25                                                                     #
-#license:   abc                                                                            #
+#dokument:  lexeme_deu_1_2_1_1.art.                                                        #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/06/25.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
 #source_1:  -                                                                              #
 #header-end#################################################################################
 #data-start
@@ -15,9 +15,9 @@ lang|deu
 value|vater
 #comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
 value_detail|biologischer vater
-#comment: Die Definition ist in dieser Version noch recht "mathematisch".
-definition_short|Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis, eines das den Samenspender für ein Kind angibt.
-definition_log#value-start
+#comment: Das ist eine kurz-Definition.
+definition_short|Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis, eines, das den Samenspender für ein Kind angibt.
+example_sentence#value-start
   ..
 #value-end  
 #data-end

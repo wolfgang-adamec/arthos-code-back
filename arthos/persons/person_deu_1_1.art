@@ -1,8 +1,8 @@
 ####arthos-data/arthos-enc/1.0####
 #header-start###############################################################################
-#author: Wolfgang Adamec                                                                   #
-#date: 2026/06/23                                                                          #
-#license: abc                                                                              #
+#author:  Wolfgang Adamec.                                                                 #
+#date:    2026/06/26.                                                                      #
+#license: cc by-sa 4.0.                                                                    #
 #header-end#################################################################################
 #data-start
 public_id|1.1
@@ -17,8 +17,7 @@ father_first_name|Arturo
 father_last_name|Falcone
 core_achievement|Kampf gegen die Mafia.
 evidence#value-start
-  Maxiprocesso di Palermo (1986–1992): Der Mammut-Prozess, bei dem Falcone als führender Ermittlungsrichter der Anklage hunderte Mitglieder der Cosa Nostra 
-  hinter Gitter brachte und damit die Existenz der kriminellen Organisation gerichtlich unumstößlich bewies.
+  Maxiprocesso di Palermo (1986 - 1992): Der Mammut-Prozess, bei dem Falcone als fuehrender Ermittlungsrichter der Anklage hunderte Mitglieder der Cosa Nostra 
+  hinter Gitter brachte und damit die Existenz der kriminellen Organisation gerichtlich unumstaendlich bewies.
 #value-end  
 #data-end
-

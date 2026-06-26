@@ -1,8 +1,8 @@
 ####arthos-data/arthos-enc/1.0####
 #header-start###############################################################################
-#author: Wolfgang Adamec                                                                   #
-#date: 2026/06/25                                                                          #
-#license: abc                                                                              #
+#author:  Wolfgang Adamec.                                                                 #
+#date:    2026/06/26.                                                                      #
+#license: cc by-sa 4.0.                                                                    #
 #header-end#################################################################################
 #data-start
 public_id|3.1
@@ -17,10 +17,10 @@ father_first_name|Fred
 father_last_name|Rosenberg
 core_achievement|Entwicklung der Gewaltfreien Kommunikation (GFK) und weltweite Konfliktmediation.
 evidence#value-start
-  Gründung des Center for Nonviolent Communication (CNVC, 1984): Durch diese internationale 
+  Gruendung des Center for Nonviolent Communication (CNVC, 1984): Durch diese internationale 
   Organisation wurde die Methode der GFK weltweit institutionalisiert. Ein historisch greifbares 
   Zeugnis seiner Hebelwirkung sind zudem seine dokumentierten Friedensmediationen in Krisengebieten 
-  wie Ruanda, Kroatien und Israel/Palästina, bei denen er verfeindete Gruppen mittels der vier 
-  Schritte (Beobachtung, Gefühl, Bedürfnis, Bitte) zu friedlichen Lösungen führte.
+  wie Ruanda, Kroatien und Israel/Palaestina, bei denen er verfeindete Gruppen mittels der vier 
+  Schritte (Beobachtung, Gefuehl, Beduerfnis, Bitte) zu friedlichen Loesungen fuehrte.
 #value-end  
 #data-end

@@ -1,22 +1,22 @@
 <?php
 
-/******************************************************************************************
- *                                                                                        *
- ******************************************************************************************/
+/*******************************************************************************
+ * Dokument: arthos_code_lib.php.                                              *
+ * Author:   Wolfgang Adamec.                                                  *
+ * Date:     2026-06-26.                                                       *
+ * License:  Apache 2.0.                                                       *
+ * Encoding: ANSI.                                                             *
+ *******************************************************************************/          
+
+/*******************************************************************************
+ *                                                                             *
+ *******************************************************************************/
 function log_message ($message, $level) 
 {
   // Log-Datei im selben Verzeichnis (oder einem dedizierten /logs/ Ordner)
   $logFile = __DIR__ . '/person_id.log';
     
-  $timestamp = date ('Y-m-d H:i:s');
-    
-  // Wenn Daten (Arrays/Objekte) übergeben werden, lesbar formatieren
-  //$dataString = '';
-  //if ($data !== null) {
-  //  $dataString = " | Data: " . print_r($data, true);
-  //   // Zeilenumbrüche aus print_r für ein sauberes Einzeilen-Log-Format bereinigen
-  //  $dataString = str_replace(array("\r", "\n"), " ", $dataString);
-  //}
+  $timestamp = date ('Y-m-d H:i:s');    
     
   $logEntry = "[$timestamp] [$level] $message\n";
     
@@ -24,9 +24,9 @@ function log_message ($message, $level)
   file_put_contents ($logFile, $logEntry, FILE_APPEND);
 }
 
-/******************************************************************************************
- * Return: true | false.                                                                  *                                                                       *
- ******************************************************************************************/
+/*******************************************************************************
+ * Return: true | false.                                                       *                                                                       
+ *******************************************************************************/
 function str_check_hash ($str_line)
 {
   $int_pos = 0;
@@ -40,9 +40,9 @@ function str_check_hash ($str_line)
   return true;  
 }
 
-/******************************************************************************************
- * Return: string | false.                                                                *                                                                       *
- ******************************************************************************************/
+/*******************************************************************************
+ * Return: string | false.                                                     *                                                                       
+ *******************************************************************************/
 function get_hash_name ($str_line)
 { 
   $bool_result = false;
@@ -65,9 +65,9 @@ function get_hash_name ($str_line)
   return $str_result;
 }
 
-/******************************************************************************************
- * Return: string | false.                                                                *                                                                       *
- ******************************************************************************************/
+/*******************************************************************************
+ * Return: string | false.                                                     *                                                                       
+ *******************************************************************************/
 function get_hash_value ($handle)
 { 
   $bool_start     = true;
@@ -109,9 +109,9 @@ function get_hash_value ($handle)
 
 }
 
-/******************************************************************************************
- *                                                                                        *                                                                       *
- ******************************************************************************************/
+/*******************************************************************************
+ *                                                                             *                                                                       
+ *******************************************************************************/
 function query_str_get_value ($arr_query_str, $str_attr)
 {
   $bool_result = false;
@@ -128,9 +128,9 @@ function query_str_get_value ($arr_query_str, $str_attr)
   return $str_return;
 }
 
-/******************************************************************************************
- *                                                                                        *                                                                                       *
- ******************************************************************************************/
+/*******************************************************************************
+ *                                                                             *                                                                                       
+ *******************************************************************************/
 function log_mapping ($mapping)
 {
   $log_line = "";
@@ -141,9 +141,9 @@ function log_mapping ($mapping)
   log_message ($log_line, "info");
 }
 
-/******************************************************************************************
- * Return: Mapping (Ass. Array) | false.                                                  *                                                                                       *
- ******************************************************************************************/
+/*******************************************************************************
+ * Return: Mapping (Ass. Array) | false.                                       *                                                                                       
+ *******************************************************************************/
 function create_mapping ($file_path)
 {
   $arr_parts     = [];
@@ -172,7 +172,7 @@ function create_mapping ($file_path)
     return false;	
   }
 
-  // Der Header wird überlesen.
+  // Der Header wird ueberlesen.
   while (true) {
     $str_line = fgets ($handle); // ret.: str./false.
     if ($str_line === false) {
@@ -204,7 +204,7 @@ function create_mapping ($file_path)
     log_message ("Zeile.", "info");
     log_message ($str_line, "info");
 
-    // Kommentare werden einfach überlesen.
+    // Kommentare werden einfach ueberlesen.
     $int_pos = strpos ($str_line, "#comment:"); // ret.: int/false.
     if ($int_pos !== false) {
       continue;	  	

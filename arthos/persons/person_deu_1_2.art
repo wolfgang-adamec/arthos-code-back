@@ -1,8 +1,8 @@
 ####arthos-data/arthos-enc/1.0####
 #header-start###############################################################################
-#author: Wolfgang Adamec                                                                   #
-#date: 2026/06/25                                                                          #
-#license: abc                                                                              #
+#author:  Wolfgang Adamec.                                                                 #
+#date:    2026/06/26.                                                                      #
+#license: cc by-sa 4.0.                                                                    #
 #header-end#################################################################################
 #data-start
 public_id|1.2
@@ -16,11 +16,11 @@ mother_first_name|Putlibai
 mother_last_name|Gandhi
 father_first_name|Karamchand
 father_last_name|Gandhi
-core_achievement|Gewaltfreier Widerstand für die Unabhängigkeit Indiens (Satyagraha).
+core_achievement|Gewaltfreier Widerstand fuer die Unabhaengigkeit Indiens (Satyagraha).
 evidence#value-start
   Salt March (Salzmarsch von 1930): Eine der bedeutendsten Kampagnen des zivilen Ungehorsams, bei der Gandhi 
-  gemeinsam mit tausenden Anhängern über 380 Kilometer zum Meer marschierte, um gegen das britische Salzmonopol 
+  gemeinsam mit tausenden Anhaengern ueber 380 Kilometer zum Meer marschierte, um gegen das britische Salzmonopol 
   zu protestieren. Dieses historische Ereignis und die darauf folgenden Massenverhaftungen wurden weltweit 
-  medial dokumentiert und bewiesen unumstößlich die moralische Hebelwirkung seines gewaltfreien Kampfes.
+  medial dokumentiert und bewiesen unumstaendlich die moralische Hebelwirkung seines gewaltfreien Kampfes.
 #value-end  
 #data-end
