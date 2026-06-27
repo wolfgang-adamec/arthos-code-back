@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexem: {{VALUE}} ({{LANG}})</title>
-    <!-- Hier wird dein bestehendes CSS-File geladen, ohne dass du es anpassen musst -->
-    <link rel="stylesheet" href="person-style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexem: {{value}} ({{lang}})</title>
+  <link rel="stylesheet" href="person-style.css">
 </head>
+
 <body>
+  <div class="profile-card">
+    <!-- Header -->
+    <div class="profile-header">
+      <span class="public-id">Public ID: {{public_id}}</span>
+      <h1>{{value}}</h1>
+      <span class="domain-badge">Detail: {{value_detail}}</span>
+    </div>
 
-    <main class="profile-card">
-        
-        <!-- HEADER-BEREICH: Analog zum Personennamen nun der Hauptbegriff und die Sprache -->
-        <header class="profile-header">
-            <div class="meta-badge">ID: {{PUBLIC_ID}}</div>
-            <h1 class="person-name">{{VALUE}}</h1>
-            <!-- value_detail verhält sich wie ein Untertitel, analog zur "Domain" bei Personen -->
-            <p class="person-title">{{VALUE_DETAIL}}</p>
-        </header>
+    <!-- Body -->
+    <div class="profile-body">           
+      <!-- Kurz-Definition -->
+      <div class="section-title">Kurz-Definition</div>
+      <div class="legacy-box">
+        <p class="legacy-text">{{definition_short}}</p>
+      </div>
 
-        <!-- DETAIL-GRID: Nutzt exakt dieselbe Spalten-Logik deines bestehenden CSS -->
-        <section class="profile-details">
-            
-            <div class="detail-group">
-                <span class="detail-label">Sprachcode (ISO 639-3)</span>
-                <span class="detail-value">{{LANG}}</span>
-            </div>
+      <!-- Sprache -->
+      <div class="section-title">Sprache</div>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Sprach-Code</span>
+          <span class="info-value">{{lang}}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Sprache</span>
+          <span class="info-value">{{lang_full_name}}</span>
+        </div>
+      </div>
 
-            <div class="detail-group">
-                <span class="detail-label">Kurzdefinition</span>
-                <span class="detail-value">{{DEFINITION_SHORT}}</span>
-            </div>
+      <!-- Ueberbegriff -->
+      <div class="section-title">Überbegriff</div>
+      <div class="info-grid">	  
+        <div class="info-item">
+          <span class="info-label">Hypernym</span>
+          <span class="info-value">{{hypernym}}</span>
+        </div>
+		<div class="info-item">
+          <span class="info-label">.</span>
+          <span class="info-value">.</span>
+        </div>
+      </div>
 
-        </section>
+      <!-- Beispielssatz -->
+      <div class="section-title">Beispielssatz</div>
+      <div class="evidence-box">
+        <p class="evidence-text">{{example_sentence}}</p>
+      </div>
 
-        <!-- EVIDENCE-BLOCK: Das "core_achievement" und das "evidence" weichen dem Beispielsatz -->
-        <footer class="profile-evidence">
-            <h2 class="evidence-title">Beispielsatz (Context & Usage)</h2>
-            <blockquote class="evidence-text">
-                „{{EXAMPLE_SENTENCE}}“
-            </blockquote>
-        </footer>
-
-    </main>
+    </div>
+  </div>
 
 </body>
 </html>
+
+

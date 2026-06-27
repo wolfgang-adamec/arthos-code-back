@@ -11,6 +11,8 @@
 public_id|1.2.1.1
 #comment: This is the iso 639-3 code for the language.
 lang|deu
+lang_full_name|Deutsch
+hypernym|Verwandtschaftsverhältnisse
 #comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
 value|vater
 #comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
@@ -18,6 +20,6 @@ value_detail|biologischer vater
 #comment: Das ist eine kurz-Definition.
 definition_short|Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis, eines, das den Samenspender für ein Kind angibt.
 example_sentence#value-start
-  ..
+  Ich habe meinen Vater lediglich einmal gesehen, es war an meinem ersten Schultag.
 #value-end  
 #data-end
