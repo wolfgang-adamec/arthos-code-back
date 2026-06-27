@@ -1,9 +1,9 @@
 <?php
 
 /*******************************************************************************
- * Dokument: show_person.php.                                                  *
+ * Dokument: show_lexeme.php.                                                  *
  * Author:   Wolfgang Adamec.                                                  *
- * Date:     2026-06-26.                                                       *
+ * Date:     2026-06-27.                                                       *
  * License:  Apache 2.0.                                                       *
  * Encoding: ANSI.                                                             *
  *******************************************************************************/          
@@ -13,7 +13,7 @@
   log_message ("-----------------------", "info");
   log_message ("New call.",               "info");
  
-  $str_card = prepare_card ("person-template.html", "person"); // false/str.
+  $str_card = prepare_card ("lexeme-template.html", "lexeme"); // false/str.
   if ($str_card === false) {
     log_message ("main.prepare_card", "error");
     exit;
