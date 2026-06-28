@@ -1,0 +1,26 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  event_deu_1_2_1_1.art.                                                         #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/06/28.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+#data-start
+#comment: ...
+public_id|1.1
+name|Nuklearkatastrophe von Tschernobyl
+last_name|Falcone
+domain|Legal
+date|26. April 1986
+location|Kernkraftwerk Tschernobyl, nahe der Stadt Prypjat.
+mother_first_name|Luisa
+mother_last_name|Falcone
+father_first_name|Arturo
+father_last_name|Falcone
+core_achievement|Kampf gegen die Mafia.
+evidence#value-start
+  Maxiprocesso di Palermo (1986–1992): Der Mammut-Prozess, bei dem Falcone als führender Ermittlungsrichter der Anklage hunderte Mitglieder der Cosa Nostra 
+  hinter Gitter brachte und damit die Existenz der kriminellen Organisation gerichtlich unumstößlich bewies.
+#value-end  
+#data-end
