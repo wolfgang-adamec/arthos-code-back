@@ -1,0 +1,25 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#author:  Wolfgang Adamec.                                                                 #
+#date:    2026/06/30.                                                                      #
+#license: cc by-sa 4.0.                                                                    #
+#header-end#################################################################################
+#data-start
+public_id|1.3
+first_name|Nelson Rolihlahla
+last_name|Mandela
+domain|Legal
+date_of_birth|18. Juli 1918
+date_of_death|5. Dezember 2013
+mother_first_name|Noqaphi
+mother_last_name|Nosekeni
+father_first_name|Gadla
+father_last_name|Henry Mphakanyiswa
+core_achievement|Zerschlagung des Apartheid-Regimes und friedliche Versöhnung der Regenbogennation Südafrika.
+evidence#value-start
+  Die Verfassung von Südafrika (1996) und die Präsidentschaft: Das von Mandela unterzeichnete
+  Staatsgrundgesetz gilt als eines der progressivsten weltweit. Seine Existenz und globale
+  Hebelwirkung sind zudem durch den Friedensnobelpreis (1993) und die Protokolle der ersten
+  freien, demokratischen Wahlen Südafrikas (1994) unumstößlich belegt.
+#value-end  
+#data-end

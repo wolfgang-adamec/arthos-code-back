@@ -12,11 +12,20 @@ statement_1#value-start
 <org urbem romam a principio reges habuere.
 <all-time a principio
 <sub reges
-<pra habuere/habuerunt/rexerunt (regere)
+<pre habuere/habuerunt/rexerunt (regere)
 <obj urbem romam
-
-
 #value-end
+
+statement_2#value-start
+<org libertatem et consulatum L. Brutus instituit
+<sub L. Brutus
+<pre instituit ()
+<obj libertatem et consulatum 
+#value-end
+
+
+
+
 #data-end
 
 -----------------------------------------------------------------------------------------------------------
@@ -25,6 +34,8 @@ Paulus war unter Nero.
 Bücher auch mit ID!!!!
 Am 14. Dezember 2020 brach eine Schulklasse auf eine Klassenfahrt auf.
 Am Anfang ihrer Beziehung verhielten sich Peter und Valentina noch sehr wohlwollend gegeneinander.
+
+Atomare Sinneinheiten.
 
 -----------------------------------------------------------------------------------------------------------
 
