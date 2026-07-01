@@ -1,0 +1,29 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  lexeme_deu_1_2_1_1.art.                                                        #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/06/25.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+#data-start
+#comment: "2" ... verbs, "2" ... relational terms, "1" ... kinship terms.
+public_id|2.1.1
+#comment: This is the iso 639-3 code for the language.
+lang|deu
+lang_full_name|Deutsch
+hypernym|Verwandtschaftsverhältnisse
+#comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
+value|regieren
+value_detail|biologischer vater
+#comment: Das ist eine kurz-Definition.
+definition_short|Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis, es bezeichnet zuerst denjenigen, der fortpflanzungstechnisch den Samen spendet und darüber hinaus den,
+
+definition_detail#value-start
+Regieren bedeutet, für die Bürger Rahmenbedingungen zu schaffen, unter denen sie agieren können.
+#value-end
+
+example_sentence#value-start
+  Ich habe meinen Vater lediglich einmal gesehen, es war an meinem ersten Schultag.
+#value-end  
+#data-end
