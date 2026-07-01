@@ -34,7 +34,7 @@ function str_check_hash ($str_line)
   // evidence#value-start (8).
   $int_pos = strpos ($str_line, "#value-start"); // ret.: int/false.
   if ($int_pos === false) {
-	return false;
+    return false;
   }
   
   return true;  
@@ -272,9 +272,11 @@ function create_mapping ($file_path)
       log_message ("Datei-Ende erreicht", "info");		
       break;	  	
     }
-	
-    $bool_result = str_contains ($str_line, '|'); // ret.: bool.
-    if ($bool_result === true) {
+
+    log_message ("Zeile 2.", "info");
+
+    $int_pos = strpos ($str_line, "|"); // ret.: int/false.
+    if ($int_pos !== false) {
       log_message ("pipe verar.", "info");
       $arr_parts    = explode ("|", $str_line, 2);
       $str_name     = trim ($arr_parts [0]);	  
