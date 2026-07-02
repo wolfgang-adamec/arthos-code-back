@@ -103,9 +103,23 @@
             border-radius: 0 8px 8px 0;
         }
 
+       .legacy-box-2 {
+            background-color: #f8fafc;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+       }
+
         .legacy-text {
             font-size: 1.2rem;
             font-weight: 600;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .legacy-text-2 {
+            font-size: 1.1 rem;
+            font-weight: 400;
             color: var(--secondary);
             margin: 0;
         }
