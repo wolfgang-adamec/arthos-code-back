@@ -1,1 +1,144 @@
-ss
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthos-Format: Attribut-Dokumentation</title>
+	<link rel="stylesheet" href="expl-styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Arthos-System: Dokumentation der Kern-Attribute</h1>
+    <p style="color: #64748b; margin-bottom: 30px;">Richtlinie zur standardisierten Erfassung von Personen- und Lexem-Daten im proprietären .art-Format.</p>
+
+    <!-- ATTRIBUT 1: public_id -->
+    <div class="attribute-block">
+        <div class="attribute-title">
+            <span class="attribute-number">1</span> public_id
+        </div>
+        <div class="block-core">
+            <div class="block-title core">1. Grundsätzliche Erklärung</div>
+            <p>Die eindeutige, hierarchische Kennung einer Entität im Gesamtsystem. Sie dient als Dateiname und primärer Schlüssel (Primary Key) zur dynamischen Ansteuerung durch den PHP-Parser.</p>
+        </div>
+        <div class="block-details">
+            <div class="block-title details">2. Besondere Details & Beachtung</div>
+            <p>Erlaubt sind ausschließlich alphanumerische Zeichen und Punkte (z. B. <code>1.1</code> für Personen oder <code>1.1.L1</code> für Lexeme). Der Punkt drückt eine hierarchische Beziehung aus. <strong>Wichtig:</strong> Der PHP-Sicherheitsfilter löscht alle anderen Zeichen, um "Path Traversal"-Angriffe auf den Linux-Server zu verhindern.</p>
+        </div>
+    </div>
+
+    <!-- ATTRIBUT 2: domain -->
+    <div class="attribute-block">
+        <div class="attribute-title">
+            <span class="attribute-number">2</span> domain
+        </div>
+        <div class="block-core">
+            <div class="block-title core">1. Grundsätzliche Erklärung</div>
+            <p>Hier wird die fachliche Herkunft bzw. die Ausbildung der Person angegeben (zum Beispiel Rechtswissenschaft, Psychologie).</p>
+        </div>
+        <div class="block-details">
+            <div class="block-title details">2. Besondere Details & Beachtung</div>
+            <p>Dieses Attribut möchte beschreiben: "Aus welchem Lager kommt diese Person ursprünglich?". Weil dieses Attribut auch der Gruppierung dient, so müssen die Werte bestimmten Vorgaben 
+			entsprechen. Es gibt aber auch Autodidakten oder Studienabbrecher. In diesem Fall (Fallback-Regelung) wird das tatsächliche Wirkungsfeld angegeben.</p>
+        </div>  
+	
+      <div class="table-container">
+          <table class="domain-example-table">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Ausbildung / Herkunft</th>
+                      <th>Zugeordnete Domain (Wirkungskreis)</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><strong>Martin Luther</strong></td>
+                      <td>Theologe &amp; Augustinermönch</td>
+                      <td><span class="badge badge-theology">Theology</span></td>
+                  </tr>
+                  <tr>
+                      <td><strong>Marshall Rosenberg</strong></td>
+                      <td>Klinischer Psychologe (Dr. phil.)</td>
+                      <td><span class="badge badge-psychology">Psychology</span></td>
+                  </tr>
+                  <tr>
+                      <td><strong>Steve Jobs</strong></td>
+                      <td>Studienabbrecher (Autodidakt)</td>
+                      <td><span class="badge badge-technology">Technology</span></td>
+                  </tr>
+                  <tr>
+                      <td><strong>Michael Faraday</strong></td>
+                      <td>Buchbinderlehre (Autodidakt)</td>
+                      <td><span class="badge badge-physics">Physics</span></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+    </div>
+
+    <!-- ATTRIBUT 3: ignition_phase -->
+    <div class="attribute-block">
+        <div class="attribute-title">
+            <span class="attribute-number">3</span> ignition_phase
+        </div>
+        <div class="block-core">
+            <div class="block-title core">1. Grundsätzliche Erklärung</div>
+            <p>Das biografische "Erstehungserlebnis" oder die "Initialzündungsphase". Beschreibt den prägenden Katalysator im Leben einer Person, der den bisherigen Lebensweg radikal geändert und die historische Hebelwirkung überhaupt erst ermöglicht hat.</p>
+        </div>
+        <div class="block-details">
+            <div class="block-title details">2. Besondere Details & Beachtung</div>
+            <p>Dieses Attribut muss im .art-Format zwingend als <strong>Multiline-Block</strong> (eingeleitet mit <code>#value-start</code> und beendet mit <code>#value-end</code>) deklariert werden, da es narrativen Charakter hat. Es kann ein punktuelles Ereignis (z. B. Gandhis Zugrauswurf) oder eine Phase (z. B. Mandelas Haft) sein.</p>
+        </div>
+    </div>
+
+    <!-- ATTRIBUT 4: core_achievement -->
+    <div class="attribute-block">
+        <div class="attribute-title">
+            <span class="attribute-number">4</span> core_achievement
+        </div>
+        <div class="block-core">
+            <div class="block-title core">1. Grundsätzliche Erklärung</div>
+            <p>Die zentrale, historische Lebensleistung der Persönlichkeit – formuliert als prägnanter, einzeiliger Kernsatz.</p>
+        </div>
+        <div class="block-details">
+            <div class="block-title details">2. Besondere Details & Beachtung</div>
+            <p>Im Gegensatz zur <i>ignition_phase</i> wird dieses Attribut als <strong>Single-Line-Feld</strong> (mit der Pipe <code>|</code>) erfasst. Es darf keine Zeilenumbrüche enthalten, muss aber die wesentliche systemische Hebelwirkung der Person für das Template blitzschnell auf den Punkt bringen.</p>
+        </div>
+    </div>
+
+    <!-- ATTRIBUT 5: evidence -->
+    <div class="attribute-block">
+        <div class="attribute-title">
+            <span class="attribute-number">5</span> evidence
+        </div>
+        <div class="block-core">
+            <div class="block-title core">1. Grundsätzliche Erklärung</div>
+            <p>Der unumstößliche, historisch oder rechtlich exakt dokumentierte Beleg dafür, dass das Wirken der Person stattgefunden hat und verifizierbar ist.</p>
+        </div>
+        <div class="block-details">
+            <div class="block-title details">2. Besondere Details & Beachtung</div>
+            <p>Wird als <strong>Multiline-Block</strong> erfasst. Hier zählen keine Mythen, sondern handfeste Primärquellen, Verträge oder Gerichtsprotokolle (z. B. der Friede von Aachen bei Maria Theresia oder die Akten des Maxiprocesso bei Falcone). Es liefert das wissenschaftliche Fundament der Karte.</p>
+        </div>
+    </div>
+
+    <!-- ATTRIBUT 6: value_detail -->
+    <div class="attribute-block">
+        <div class="attribute-title">
+            <span class="attribute-number">6</span> value_detail (nur bei Lexemen)
+        </div>
+        <div class="block-core">
+            <div class="block-title core">1. Grundsätzliche Erklärung</div>
+            <p>Der erweiterte Wert eines Lexems, der die genaue semantische Abgrenzung oder Nuance des Begriffs einführt und präzisiert.</p>
+        </div>
+        <div class="block-details">
+            <div class="block-title details">2. Besondere Details & Beachtung</div>
+            <p>Dieses Feld verhindert Missverständnisse bei homonymen Begriffen. Bei dem Basis-Wert (<code>value|Vater</code>) sorgt erst das <code>value_detail|Biologischer oder rechtlicher männlicher Elternteil</code> dafür, dass die Karte im System exakt verortet ist.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
