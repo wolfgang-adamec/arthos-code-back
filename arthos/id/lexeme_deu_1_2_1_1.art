@@ -18,13 +18,11 @@ value|vater
 #comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
 value_detail|biologischer vater
 #comment: Das ist eine kurz-Definition.
-definition_short|Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis, es bezeichnet zuerst denjenigen, der fortpflanzungstechnisch den Samen spendet und darüber hinaus den,
-
+definition_short|-
 definition_detail#value-start
-Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis. Es bezeichnet zuerst denjenigen, der fortpflanzungstechnisch den Samen spendet. Darüber hinaus kann noch folgender Aspekt
-hinzukommen, der des 
+Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis. Es bezeichnet zuerst denjenigen, der fortpflanzungstechnisch den Samen spendet. Darüber hinaus 
+  kann noch folgender Aspekt hinzukommen: Der, der sich auch in unterschiedlichster Weise um das Kind kümmert. 
 #value-end
-
 example_sentence#value-start
   Ich habe meinen Vater lediglich einmal gesehen, es war an meinem ersten Schultag.
 #value-end  
