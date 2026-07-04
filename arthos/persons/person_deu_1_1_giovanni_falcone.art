@@ -8,16 +8,17 @@
 public_id|1.1
 first_name|Giovanni
 last_name|Falcone
-domain|Legal
+domain|legal
 date_of_birth|18. Mai 1939
 date_of_death|23. Mai 1992
 mother_first_name|Luisa
-mother_last_name|Falcone
+mother_last_name|Bentivegna
 father_first_name|Arturo
 father_last_name|Falcone
-core_achievement|Kampf gegen die Mafia.
+core_achievement|Maxi-Prozess
+legacy|Kampf gegen die Mafia.
+key_life_events|Ermordung von Rocco Chinnici (1983), Tommaso Buscetta wird Kronzeuge (1984), Maxi-Prozess (1986 - 1987), Attentat von Addaura (1989). 
 evidence#value-start
-  Maxiprocesso di Palermo (1986 - 1992): Der Mammut-Prozess, bei dem Falcone als fuehrender Ermittlungsrichter der Anklage hunderte Mitglieder der Cosa Nostra 
-  hinter Gitter brachte und damit die Existenz der kriminellen Organisation gerichtlich unumstaendlich bewies.
+  -
 #value-end  
 #data-end

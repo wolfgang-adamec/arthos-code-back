@@ -13,7 +13,9 @@
   log_message ("-----------------------", "info");
   log_message ("New call.",               "info");
  
-  $str_card = prepare_card ("person-template.html", "person"); // false/str.
+  $base_dir = __DIR__;
+
+  $str_card = prepare_card ("person", $base_dir); // false/str.
   if ($str_card === false) {
     log_message ("main.prepare_card", "error");
     exit;

@@ -10,10 +10,12 @@
  
   require_once __DIR__ . "/../arthos_code_lib.php";
 
+  $base_dir = __DIR__;
+
   log_message ("-----------------------", "info");
   log_message ("New call.",               "info");
  
-  $str_card = prepare_card ("lexeme-template.html", "lexeme"); // false/str.
+  $str_card = prepare_card ("lexeme", $base_dir); // false/str.
   if ($str_card === false) {
     log_message ("main.prepare_card", "error");
     exit;

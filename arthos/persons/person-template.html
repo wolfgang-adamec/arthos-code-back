@@ -11,9 +11,11 @@
   <div class="profile-card">
     <!-- Header -->
     <div class="profile-header">
-      <span class="public-id">Public ID: {{public_id}}</span>
       <h1>{{first_name}} {{last_name}}</h1>
-      <span class="domain-badge">Domain: {{domain}}</span>
+      <div class="meta-row">
+         <span class="meta-domain">Domain: {{domain}}</span>
+         <span class="meta-id">ID: {{public_id}}</span>
+      </div>
     </div>
 
     <!-- Body -->
@@ -31,6 +33,10 @@
           <span class="info-value">{{legacy}}</span>
         </div>
       </div>
+
+      <!-- Erlebnisse -->
+      <div class="section-title">Wichtige Lebensereignisse</div>
+      <div class="info-value">{{key_life_events}}</div>
 
       <!-- Lebensdaten -->
       <div class="section-title">Biographical Dates</div>

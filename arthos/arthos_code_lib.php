@@ -25,6 +25,36 @@ function log_message ($message, $level)
 }
 
 /*******************************************************************************
+ *                                                                             *
+ *******************************************************************************/
+function get_full_file_name ($base_dir, $name_part)
+{
+  $arr_dateien = [];
+  $suchmuster  = "";
+  $int_count   = 0;
+  $file_name   = "";
+  $file_path   = "";
+
+  $suchmuster = $base_dir . DIRECTORY_SEPARATOR . $name_part . "*";
+
+  $arr_dateien = glob ($suchmuster);
+  if ($arr_dateien === false) {
+    return false;
+  }
+
+  $int_count = count ($arr_dateien);
+  if ($int_count !== 1) {
+    return false;
+  }
+
+  // Ich bekomme einen ganzen Pfad zurueck, moechte aber nur den Dateinamen zurueckgeben.
+  $file_path = $arr_dateien [0];
+  $file_name = basename ($file_path);
+
+  return $file_name;
+}
+
+/*******************************************************************************
  * Return: true | false.                                                       *                                                                       
  *******************************************************************************/
 function str_check_hash ($str_line)
@@ -144,14 +174,16 @@ function log_mapping ($mapping)
 /*******************************************************************************
  * Return: Mapping (Ass. Array) | false.                                       *                                                                                       
  *******************************************************************************/
-function prepare_card ($template_name, $prefix)
+function prepare_card ($code, $base_dir)
 {
   $str_id = "";
   $str_lang = ""; 
   $str_sapi_name = "";
-  $file_name = "";
+  $file_name_full = "";
+  $file_name_part = "";
   $html_template = "";
   $output = "";
+  $template_name = "";
 
   $str_sapi_name = php_sapi_name ();
   if ($str_sapi_name === "cli") {
@@ -174,12 +206,19 @@ function prepare_card ($template_name, $prefix)
   log_message ("ID:   {$str_id}", "info");
   log_message ("lang: {$str_lang}", "info");
 
-  $str_id    = str_replace (".", "_", $str_id);  
-  $file_name = $prefix . "_" . $str_lang . "_" . $str_id . ".art";
+  $str_id         = str_replace (".", "_", $str_id);  
+  $file_name_part = $code . "_" . $str_lang . "_" . $str_id;
   
-  log_message ($file_name, "info");
+  $file_name_full = get_full_file_name ($base_dir, $file_name_part);
+  if ($file_name_full ===  false) {
+    log_message ("prepare_card.get_full_file_name", "error");
+    exit;
+  }
 
-  $data_map = create_mapping ($file_name); 
+  log_message ($file_name_part, "info");
+  log_message ($file_name_full, "info");
+
+  $data_map = create_mapping ($file_name_full); 
   log_mapping ($data_map);  
   if ($data_map === false) {
     log_message ("prepare_card.create_mapping", "error");	
@@ -187,6 +226,8 @@ function prepare_card ($template_name, $prefix)
   }	  
   
   log_message ("nach create_mapping", "info");
+
+  $template_name = $code . "-template.html";
 
   // Die HTML-Vorlage reinen Text vom Linux-Server einlesen
   $html_template = file_get_contents ($template_name);
