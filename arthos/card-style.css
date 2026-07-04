@@ -13,7 +13,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.4;
             margin: 0;
             padding: 20px 20px;
             display: flex;
@@ -37,13 +37,13 @@
         .profile-header {
             background-color: var(--primary);
             color: #ffffff;
-            padding: 20px;
+            padding: 15px;
             position: relative;
         }
 
         .profile-header h1 {
             margin: 0;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 500;
             letter-spacing: -0.5px;
         }
