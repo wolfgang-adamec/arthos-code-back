@@ -1,0 +1,31 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#author:  Wolfgang Adamec.                                                                 #
+#date:    2026/07/05.                                                                      #
+#license: cc by-sa 4.0.                                                                    #
+#header-end#################################################################################
+#data-start
+#comment "1" male "2" female / "1" legal "2" ... "3" psychology "4" politik staatsführung / "1" sequential number.
+public_id|2.4.1
+first_name|Maria Theresia Walburga Amalia Christina
+last_name|Falcone
+domain|legal
+sex_rec_at_birth|female
+date_of_birth|13. Mai 1717 (Wien)
+date_of_death|29. November 1780 (Wien)
+mother_first_name|Elisabeth Christine
+mother_last_name|Bentivegna
+father_first_name|Karl
+father_last_name|Falcone
+core_achievement|Maxi-Prozess
+legacy|Kampf gegen die Mafia.
+key_life_events|Ermordung von Rocco Chinnici (1983), Tommaso Buscetta wird Kronzeuge (1984), Maxi-Prozess (1986 - 1987), Attentat von Addaura (1989). 
+children#value-start
+Maria Elisabeth (I.) (1737), Maria Anna (1738), Maria Karolina (I.) (1740), Joseph (1741), Maria Christina (1742), Maria Elisabeth (II.) 1743, Karl Joseph (1745), Maria Amalia (1746),
+Leopold (1747), Maria Karolina (II.) (1748), Johanna Gabriela (1750), Maria Josepha (1751), Maria Karolina (III.) (1752), Ferdinand Karl Anton (1754), Maria Antonia (1755),
+Maximilian Franz (1756) 
+#value-end
+evidence#value-start
+  -
+#value-end  
+#data-end
