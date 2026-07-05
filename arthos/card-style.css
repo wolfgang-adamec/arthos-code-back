@@ -61,6 +61,7 @@
 /* Beide Elemente erhalten nun das exakt gleiche Aussehen */
 
 .meta-domain, 
+.meta-sex,
 .meta-id {
     font-size: 0.9em;
     color: #cbd5e1;                 /* Ein edles, unaufdringliches Schiefergrau */

@@ -1,0 +1,27 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#author:  Wolfgang Adamec.                                                                 #
+#date:    2026/06/26.                                                                      #
+#license: cc by-sa 4.0.                                                                    #
+#header-end#################################################################################
+#data-start
+#comment "1" male, "1" legal, "1" sequential number.
+public_id|1.1.1
+first_name|Giovanni
+last_name|Falcone
+domain|legal
+sex_rec_at_birth|male
+date_of_birth|18. Mai 1939
+date_of_death|23. Mai 1992
+mother_first_name|Luisa
+mother_last_name|Bentivegna
+father_first_name|Arturo
+father_last_name|Falcone
+core_achievement|Maxi-Prozess
+legacy|Kampf gegen die Mafia.
+key_life_events|Ermordung von Rocco Chinnici (1983), Tommaso Buscetta wird Kronzeuge (1984), Maxi-Prozess (1986 - 1987), Attentat von Addaura (1989). 
+children|keine
+evidence#value-start
+  -
+#value-end  
+#data-end

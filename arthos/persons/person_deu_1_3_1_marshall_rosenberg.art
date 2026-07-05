@@ -1,0 +1,25 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#author:  Wolfgang Adamec.                                                                 #
+#date:    2026/06/26.                                                                      #
+#license: cc by-sa 4.0.                                                                    #
+#header-end#################################################################################
+#data-start
+public_id|1.3.1
+first_name|Marshall Bertram
+last_name|Rosenberg
+domain|Psychology
+sex_rec_at_birth|male
+date_of_birth|6. Oktober 1934
+date_of_death|7. Februar 2015
+mother_first_name|Jean
+mother_last_name|Wiener
+father_first_name|Fred
+father_last_name|Rosenberg
+core_achievement|Gewaltfreie Kommunikation.
+legacy|Konfliktlösung, neue Art der Kommunikation.
+key_life_events|Rassenunruhen in Detroit (1943), Antisemitismus an der Schule, Gründung des CNVC (1984)
+evidence#value-start
+  .
+#value-end  
+#data-end
