@@ -66,7 +66,6 @@
     font-size: 0.9em;
     color: #cbd5e1;                 /* Ein edles, unaufdringliches Schiefergrau */
     font-weight: 600;               /* Leicht halbfett für gute Lesbarkeit */
-    text-transform: uppercase;      /* Macht alles zu edlen Großbuchstaben */
     letter-spacing: 0.5px;          /* Minimaler Abstand zwischen den Buchstaben */
 }
 
