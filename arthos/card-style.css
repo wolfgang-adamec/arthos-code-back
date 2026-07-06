@@ -20,6 +20,7 @@
             justify-content: center; /* Zentriert die Karte horizontal. */
             align-items: flex-start; /* Die Karte wird am oberen Rand ausgerichtet. */
             min-height: 100vh;
+			box-sizing: border-box;
         }
 
         .profile-card {
