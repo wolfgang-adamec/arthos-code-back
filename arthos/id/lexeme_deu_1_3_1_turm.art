@@ -1,0 +1,30 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  lexeme_deu_1_3_1_turm.art.                                                     #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/07/06.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+#data-start
+#comment: "1" ... nouns, "2" ... relational terms, "1" ... kinship terms.
+public_id|1.3.1
+#comment: This is the iso 639-3 code for the language.
+lang|deu
+lang_full_name|Deutsch
+hypernym|Bauwerke
+#comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
+value|turm
+#comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
+value_detail|-
+#comment: Das ist eine kurz-Definition.
+definition_short|-
+definition_detail#value-start
+  Ein Turm ist ein Bauwerk, das die in der Natur (auf Bergen oder Bäumen) erfahrene Ur-Idee der erhöhten Lage oder Position künstlich reproduziert, 
+  um dadurch eine Bündelung an möglichen Vorteilen zu bekommen, die da sind: Übersicht, Überwindung (beim Schauen) von Dingen, die ihm normalerweise 
+  die Sicht verstellen, Vorteile gegenüber Angreifern.
+#value-end
+example_sentence#value-start
+  Ich habe meinen Vater lediglich einmal gesehen, es war an meinem ersten Schultag.
+#value-end  
+#data-end
