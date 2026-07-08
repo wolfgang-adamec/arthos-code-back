@@ -20,10 +20,12 @@ value_detail|biologischer vater
 #comment: Das ist eine kurz-Definition.
 definition_short|-
 definition_detail#value-start
-Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis. Es bezeichnet zuerst denjenigen, der fortpflanzungstechnisch den Samen spendet. Darüber hinaus 
-  kann noch folgender Aspekt hinzukommen: Der, der sich auch in unterschiedlichster Weise um das Kind kümmert. 
+Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis. Im Regelfall bezeichnet er zunächst diejenige männliche Person, die bei der Zeugung eines Kindes den Samen gibt.
+  Über diese Bedeutung hinaus kann noch folgender Aspekt hinzukommen. Es ist diejenige Person, die sich auf unterschiedlichste Weise um das Kind kümmert. Es gibt aber 
+  auch Fälle, in denen die biologische Angabe nicht zutrifft, sondern nur der erweiterte Teil.
 #value-end
-example_sentence#value-start
-  Ich habe meinen Vater lediglich einmal gesehen, es war an meinem ersten Schultag.
+reference_sentence#value-start
+  Rosegger, Peter: Als ich noch ein Waldbauernbub war. Kapitel "Von meinen Vorfahren": 
+  Das, was ich von meinen Ahnen weiß, hat mir größtenteils mein Vater erzählt, er hat besonders in seinen alten Tagen gerne davon gesprochen.
 #value-end  
 #data-end
