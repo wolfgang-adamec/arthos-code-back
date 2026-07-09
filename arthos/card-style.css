@@ -148,6 +148,11 @@
             font-size: 1rem;
         }
 
+        .info-value-2 {
+            font-weight: 450;
+            font-size: 0.85rem;
+        }
+
         /* Spezial-Spalte: Historisches Hauptzeugnis */
 
         .evidence-box {
