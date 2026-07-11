@@ -1,0 +1,33 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  lexeme_deu_1_2_5_2.art.                                                        #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/07/11.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+#data-start
+#comment: "1" ... nouns, "2" ... relational terms, "5" ... captivity terms.
+public_id|1.2.5.2
+#comment: This is the iso 639-3 code for the language.
+lang|deu
+lang_full_name|Deutsch
+hypernym|Verhältnisbegriffe der Gefangenschaft und Kontrolle
+#comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
+value|sklave
+#comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
+value_detail|-
+#comment: Das ist eine kurz-Definition.
+definition_short|-
+definition_detail#value-start
+  Dieser Begriff bezeichnet ein Verhältnis, in dem es um Macht und Kontrolle auf der einen Seite und Ohnmacht, Kontrolliertheit, Unfreiheit auf der anderen Seite geht. Es kann
+  im engeren Sinn das Verhältnis zwischen dem menschlichen Besitzer des Sklaven und dem Sklaven selbst beschreiben, im weiteren Sinn zwischen dem Abhängigen und der Sache, die
+  ihn abhängig macht.
+#value-end
+similar_lexemes|slave (engl.), esclave (franz.), schiavo (ital.).
+reference_sentence#value-start
+  Nietzsche, Friedrich: Menschliches, Allzumenschliches. Ein Buch für freie Geister. Band 1, Fünftes Hauptstück, Aphorismus 283.
+    Alle Menschen zerfallen, wie zu allen Zeiten so auch jetzt noch, in Sclaven und Freie; denn wer von seinem Tage nicht zwei Drittel für sich hat, ist ein Sclave, er sei übrigens 
+    wer er wolle: Staatsmann, Kaufmann, Beamter, Gelehrter.
+#value-end  
+#data-end

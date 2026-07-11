@@ -1,6 +1,6 @@
 ####arthos-data/arthos-enc/1.0####
 #header-start###############################################################################
-#dokument:  lexeme_deu_1_2_1_1.art.                                                        #
+#dokument:  lexeme_deu_1_2_1_1_vater.art.                                                  #
 #author:    Wolfgang Adamec.                                                               #
 #date:      2026/06/25.                                                                    #
 #license:   cc by-sa 4.0.                                                                  #
@@ -16,14 +16,14 @@ hypernym|Verwandtschaftsverhältnisse
 #comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
 value|vater
 #comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
-value_detail|biologischer vater
+value_detail|-
 #comment: Das ist eine kurz-Definition.
 definition_short|-
 definition_detail#value-start
-Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis. Im Regelfall bezeichnet er zunächst diejenige männliche Person, die bei der Zeugung eines Kindes den Samen gibt.
-  Über diese Bedeutung hinaus kann noch folgender Aspekt hinzukommen. Es ist diejenige Person, die sich auf unterschiedlichste Weise um das Kind kümmert. Es gibt aber 
-  auch Fälle, in denen die biologische Angabe nicht zutrifft, sondern nur der erweiterte Teil.
+Dieser Begriff bezeichnet ein Verwandtschaftsverhältnis. Er bezeichnet zunächst diejenige männliche Person, die bei der Zeugung eines Kindes den Samen gibt.
+  Über diese Bedeutung hinaus kann noch folgender Aspekt hinzukommen. Es ist diejenige Person, die sich auf unterschiedlichste Weise um das Kind kümmert. 
 #value-end
+similar_lexemes|pater (lateinisch), padre (ital.), father (engl.), pater (altgriech.).
 reference_sentence#value-start
   Rosegger, Peter: Als ich noch ein Waldbauernbub war. Kapitel "Von meinen Vorfahren": 
   Das, was ich von meinen Ahnen weiß, hat mir größtenteils mein Vater erzählt, er hat besonders in seinen alten Tagen gerne davon gesprochen.
