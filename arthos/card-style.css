@@ -143,15 +143,15 @@
             color: var(--text-muted);
         }
 
-        .info-value {
-            font-weight: 500;
-            font-size: 1rem;
-        }
+.info-value {
+  font-weight: 500;
+  font-size: 1rem;
+}
 
-        .info-value-2 {
-            font-weight: 450;
-            font-size: 0.85rem;
-        }
+.info-value-2 {
+  font-weight: 450;
+  font-size: 0.85rem;
+}
 
         /* Spezial-Spalte: Historisches Hauptzeugnis */
 
@@ -168,3 +168,9 @@
             font-style: italic;
             color: #334155;
         }
+
+.highl-underl {
+  text-decoration: underline;
+  text-underline-offset: 3px; /* Drückt die Linie elegant ein Stück nach unten, damit sie die Buchstaben nicht abschneidet */
+  text-decoration-color: #64748b; /* Du kannst der Linie sogar eine eigene, dezentere Farbe geben! */
+}

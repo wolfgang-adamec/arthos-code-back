@@ -20,15 +20,13 @@ value_detail|-
 #comment: Das ist eine kurz-Definition.
 definition_short|-
 definition_detail#value-start
-  Die Ausgangssituation ist ein Problem. Aufgrund eines Hindernisses ist es an einer Stelle nicht mehr möglich, den Weg von 
-  Punkt A zu Punkt B fortzusetzen. Das Hindernis kann zum Beispiel ein Fluss, eine Schlucht oder eine Autobahn sein. Dieses Problem kann 
-  auf unterschiedliche Weise gelöst werden. Angenommen, es gibt eine Schlucht und die Kluft ist vom Ausmaß her ungefähr 2 Meter lang.
-  Nun kann man, wenn man mutig und sportlich ist, einfach über die Schlucht auf die andere Seite springen.
-  Oder aber man wählt eine andere Lösung. Man sucht sich einige längere Baumstämme und bindet diese wie bei einem Floß zu einem ganzen
-  zusammen. Dieses Konstrukt legt man nun über die Kluft drüber. Dies ist dann eine ganz einfache Form einer Brücke, hat aber alle wesentlichen
-  Charakteristika diese, die da sind.
-
-
+  <p>Die Ausgangssituation ist ein Problem. Aufgrund eines Hindernisses ist es an einer Stelle nicht mehr möglich, den Weg von Punkt A zu Punkt B fortzusetzen. Das Hindernis 
+  kann zum Beispiel ein Fluss, eine Schlucht oder eine Autobahn sein. Dieses Problem kann auf unterschiedliche Weise gelöst werden.</p>
+  <p>Angenommen, es gibt eine Schlucht und die Kluft, die man überwinden muss, ist ungefähr 2 Meter. Nun kann man, wenn man mutig und sportlich ist, einfach über die Schlucht auf die 
+  andere Seite springen. Oder aber man wählt eine andere Lösung. Man sucht sich einige längere Baumstämme und bindet diese wie bei einem Floß zu einem ganzen zusammen. Dieses Konstrukt 
+  positioniert man dann so, dass man über die Kluft drüber gehen kann.</p>
+  <p class="paragr-bottom">Dies ist dann eine ganz einfache Form einer Brücke, hat aber alle wesentlichen Charakteristika von dieser, die da sind: Sie ist fix mit dem Untergrund verbunden. Sie bietet einen mehr 
+  oder weniger “konfortablen” Weg über das Hindernis.</p>
 #value-end
 example_sentence#value-start
   Ich habe meinen Vater lediglich einmal gesehen, es war an meinem ersten Schultag.
