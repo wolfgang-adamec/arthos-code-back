@@ -1,0 +1,43 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  lexeme_deu_1_4_1_weg.art.                                                      #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/07/11.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+#data-start
+#comment: "1" ... nouns, "4" ... minor changes to the natural environment.
+public_id|1.4.1
+#comment: This is the iso 639-3 code for the language.
+lang|deu
+lang_full_name|Deutsch
+hypernym|Geringer Eingriffe in die Natur
+#comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
+value|weg
+#comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
+value_detail|materieller weg
+#comment: Das ist eine kurz-Definition.
+definition_short|-
+definition_detail#value-start
+  <p>Ein Weg ist systematischer Eingriff in die Natur, bei dem das Ausmaß der menschlichen Veränderung der Natur gering ist.</p> 
+  <p>Wie ist die <span class="highl-underl">Ausgangssituation</span> ohne einen Weg?</p>
+  <p>Im Beispiel 1 gibt es auf einer Insel ein Dorf und eine Wasserstelle. In der Situation bis jetzt können nur diejenigen, die genau wissen, wie man dort hinkommt und bereit sind, 
+     sich mit einer Machete durch das dichte Gestrüpp durchzukämpfen, dorthin gelangen.</p>
+  <p>Im Beispiel 2 gibt es einen Berg, es gibt also einen Gipfel, aber bei diesem Berg können nur diejenigen, die sich mühsam das Wissen erworben haben, wie man hinaufkommt, relativ schnell 
+     und halbwegs gefahrlos zum Gipfel gelangen.</p>
+  <p>In beiden Beispielen ist das Problem darum die Gefahr, dass sich andere Menschen, die keine großen Expertise haben, wie man zum Ziel kommt, verirren können. Und sie könnten sich ohne gute 
+     Ausrüstung verletzen.</p>
+  <p>Es gibt nun mehrere <span class="highl-underl">Lösungsmöglichkeiten (Abgrenzung)</span></p>
+  <p>Man bildet zum Beispiel die, die zum Ziel wollen, durch erfahrene Menschen aus und sorgt so dafür, dass sie dorthin kommen, wohin sie wollen.</p>
+  <p>Oder man erstellt (und verteilt dann) gute Karten, die auf Papier den Weg (anderer Begriff) zeigen.</p>
+  <p>Oder aber, und das ist das Konzept des Weges: Der Mensch greift in die Natur ein, um ein etwas zu schaffen, durch das man dann besser, schneller, sicherer, müheloser,
+     planbarer und nachvollziehbarer von einem Punkt zu einem anderen Punkt gelangen kann.</p>
+  <p>In einer gewissen Hinsicht verändert der Mensch so ein "ungewidmetes" Stück Natur in eine Infrastrukur. Und Infrastruktur ist dann eine Verantwortung und jede Infrastruktur muss gepflegt werden.
+     Im Winter muss man den Weg von Schnee und Eis befreien, bei Vermurungen muss man wieder reparieren. Und dann bringt man noch Informationstafeln an, damit sich die Menschen gut zurechtfinden.</p>
+#value-end
+similar_lexemes|bridge (engl.), brug (niederl.).
+example_sentence#value-start
+  Ich habe meinen Vater lediglich einmal gesehen, es war an meinem ersten Schultag.
+#value-end  
+#data-end
