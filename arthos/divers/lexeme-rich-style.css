@@ -1,0 +1,84 @@
+/* Globales Zurücksetzen für ein freies, fließendes Layout */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Reines Weiß für perfekten Kontrast wie bei Wikipedia */
+    color: #202122;            /* Das originale, sanfte Wikipedia-Schwarz */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Der obere Balken für die Meta-Daten */
+.wiki-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 16px 10px 16px;
+    border-bottom: 1px solid #a2a9b1; /* Feine Wikipedia-Trennlinie */
+}
+
+.wiki-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #72777d;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.wiki-title {
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif; /* Edle Serifenschrift für den Titel */
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 10px 0 5px 0;
+}
+
+.wiki-hypernym {
+    margin: 0;
+    color: #54595d;
+    font-size: 0.95rem;
+}
+
+/* Haupt-Inhaltsbereich */
+.wiki-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px 40px 16px;
+}
+
+/* Der Einleitungstext */
+.wiki-lead {
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+/* Die großen Zwischenüberschriften im Wikipedia-Stil */
+.wiki-section h2 {
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    border-bottom: 1px solid #a2a9b1;
+    padding-bottom: 3px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Schöne, saubere Absätze für viel Text */
+.wiki-text p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+}
+
+/* Starke Hervorhebungen im Text */
+.wiki-text strong {
+    color: #000000;
+}
+
+/* Spezieller, dezenter Kasten für den wissenschaftlichen Beleg am Ende */
+.bg-evidence {
+    background-color: #f8fafc;
+    border-left: 4px solid #eaecf0;
+    padding: 15px;
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+}

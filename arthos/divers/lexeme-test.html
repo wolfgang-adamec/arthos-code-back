@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{LEXEME_NAME}} - Arthos Enzyklopädie</title>
+    <link rel="stylesheet" href="lexeme-rich-style.css">
+</head>
+<body>
+
+    <header class="wiki-header">
+        <div class="wiki-meta">
+            <span class="wiki-domain">{{DOMAIN}}</span>
+            <span class="wiki-id">ID: {{PUBLIC_ID}}</span>
+        </div>
+        <h1 class="wiki-title">{{LEXEME_NAME}}</h1>
+        <p class="wiki-hypernym">Überbegriff: <em>{{HYPERNYM}}</em></p>
+    </header>
+
+    <main class="wiki-content">
+        <section class="wiki-lead">
+            <p><strong>{{LEXEME_NAME}}</strong> (zugeordnet der Domain {{DOMAIN}}) bezeichnet im Kern {{CORE_DEFINITION}}.</p>
+        </section>
+
+        <section class="wiki-section">
+            <h2>1. Begriffsbestimmung &amp; Einordnung</h2>
+            <div class="wiki-text">
+                {{LONG_TEXT_SECTION_1}}
+            </div>
+        </section>
+
+        <section class="wiki-section">
+            <h2>2. Historische Entwicklung &amp; Relevanz</h2>
+            <div class="wiki-text">
+                {{LONG_TEXT_SECTION_2}}
+            </div>
+        </section>
+
+        <section class="wiki-section">
+            <h2>3. Wissenschaftliches Fundament &amp; Nachweis</h2>
+            <div class="wiki-text bg-evidence">
+                {{EVIDENCE}}
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
