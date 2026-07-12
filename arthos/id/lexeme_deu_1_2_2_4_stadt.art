@@ -1,0 +1,37 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  lexeme_deu_1_2_2_4_stadt.art.                                                  #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/07/12.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+#data-start
+#comment: "1" ... nouns, "2" ... social terms, "2" ... forms of human association.
+public_id|1.2.2.4
+#comment: This is the iso 639-3 code for the language.
+lang|deu
+lang_full_name|Deutsch
+hypernym|Formen von menschlichen Zusammenschlüssen
+#comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
+value|stadt
+#comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
+value_detail|-
+#comment: Das ist eine kurz-Definition.
+definition_short|-
+definition_detail#value-start
+  Eine Stadt ist eine von mehreren unterschiedlichen Formen, wie sich Menschen zusammenschließen können.
+
+  Im Unterschied zu Familien oder Gangs ist der Zusammenschluss normalerweise indirekt, durch konkludentes Handeln konstituiert, etwa durch Zuzug.
+  Also durch die Übersiedlung von irgendwo in eine bestimmte Stadt stimmt man durch dieses "stillschweigende Handeln" den zu.
+  
+  
+
+
+#value-end
+similar_lexemes|pater (lateinisch), padre (ital.), father (engl.), pater (altgriech.).
+reference_sentence#value-start
+  Rosegger, Peter: Als ich noch ein Waldbauernbub war. Kapitel "Von meinen Vorfahren": 
+  Das, was ich von meinen Ahnen weiß, hat mir größtenteils mein Vater erzählt, er hat besonders in seinen alten Tagen gerne davon gesprochen.
+#value-end  
+#data-end
