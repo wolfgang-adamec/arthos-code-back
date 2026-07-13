@@ -187,8 +187,9 @@ function prepare_card ($code, $base_dir)
 
   $str_sapi_name = php_sapi_name ();
   if ($str_sapi_name === "cli") {
-    $_GET["id"]   = "1.1";
-    $_GET["lang"] = "deu";
+    $_GET["id"]     = "1.1";
+    $_GET["lang"]   = "deu";
+	$_GET["format"] = 
   }
 
   $str_id = query_str_get_value ($_GET, "id"); // false/str.  

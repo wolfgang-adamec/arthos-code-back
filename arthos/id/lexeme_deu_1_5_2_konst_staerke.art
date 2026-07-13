@@ -1,0 +1,39 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  lexeme_deu_1_5_2_konst-staerke.art.                                            #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/07/12.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+#data-start
+#comment: "1" ... nouns, "5" ... assessment tools.
+public_id|1.5.2
+#comment: This is the iso 639-3 code for the language.
+lang|deu
+lang_full_name|Deutsch
+hypernym|Bewertungshilfen
+#comment: This ist the core "ingredient" of this arthos-data file.  The lexems are always (for simplicity reasons) lower case.
+value|konstitutive stärke
+#comment: Es gibt ja mehrere Bedeutungen von Vater (zum Beispiel der Vater der Atombombe und der Vater von Marshall Rosenberg). Darum gibt es hier eine genauere Unterscheidung.
+value_detail|-
+#comment: Das ist eine kurz-Definition.
+definition_short|-
+definition_detail#value-start
+  <p>Bei den menschlichen Zusammschlüssen gibt es sogenannte "starke" Typen oder Formen wie Unternehmen, Ehe, Verein, Schule, Stadt oder Staat. Starke Typen haben das Potential, 
+     einen hohen Wert zu etablieren. Eine gute Schule kann den Grundstein dafür legen, dass es viele ausgezeichnete Ärzte, Krankschwestern, Anwälte, Architekten in einem Land gibt. Ein 
+	 guter Verein kann in der Gesellschaft sehr wertvolle Dienste leisten.</p>
+  <p>Dann gibt es aber auch "schwache Typen" von menschlichen Zusammenschlüssen. In einem Urlaubsresort schließen sich ein paar Männer zusammen, um in den nächsten 3 Tagen 
+     Volleyball zu spielen. In einer Großstadt gibt es einen Zusammenschluss von jungen Erwachsenen zu einer Gang, die viel negatives anrichten. An einem Samstag Abend schließen
+	 sich 10 Männer kurzfristig zusammen, um gemeinsam die Altstadt "unsicher zu machen". Es soll gar nicht gesagt sein, dass manche dieser "schwachen Typen" von Zusammenschlüssen
+	 nicht legitim wären, aber der Wert, den sie vermutlich bauen, unterscheidet sich doch deutlich von dem Wert, der von starken Typen gebaut werden kann.</p>
+  <p>Die Bewertungshilfe "kostitutive Stärke" kann nun mit den Attributen, die sie bietet (Attributsbündel), helfen, einzuschätzen, ob ein Zusammenschluss-Typ "stark" oder "schwach" ist.	 
+     Und überdies hinaus kann diese Hilfe auch helfen, dass man ermitteln kann, ob eine bestimmte Ausprägung eines "starken Typs", also zum Beispiel eine ganz bestimmte Ehe von Herrn X und
+	 Frau Y, dem Typ in einem hohen Ausmaß ähnlich ist, oder nicht, also zum Beispiel den Namen "Ehe" trägt, aber bei näherer Betrachtung werden die Attribute in einem sehr geringen
+	 Ausmaß erfüllt.</p>	 
+#value-end
+similar_lexemes|bridge (engl.), brug (niederl.).
+example_sentence#value-start
+  Ich habe meinen Vater lediglich einmal gesehen, es war an meinem ersten Schultag.
+#value-end  
+#data-end

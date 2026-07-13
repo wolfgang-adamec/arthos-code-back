@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexem: {{value}} {{lang}}</title>
+    <link rel="stylesheet" href="lexeme-rich-style.css">
+</head>
+<body>
+    <header class="wiki-header">
+        <div class="wiki-meta">
+            <span class="wiki-domain">{{value_detail}}</span>
+            <span class="wiki-id">ID: {{public_id}}</span>
+        </div>
+        <h1 class="wiki-title">{{value}}</h1>
+        <p class="wiki-hypernym">Überbegriff: <em>{{hypernym}}</em></p>
+    </header>
+
+    <main class="wiki-content">
+        <section class="wiki-section">
+            <h2>Definition</h2>
+            <div class="wiki-text">
+                {{definition_detail}}
+            </div>
+        </section>
+
+        <section class="wiki-section">
+            <h2>Sprache</h2>
+            <div class="wiki-text">
+                {{lang_full_name}} ({{lang}})
+            </div>
+        </section>
+
+        <section class="wiki-section">
+            <h2>Referenz-Satz</h2>
+            <div class="wiki-text bg-evidence">
+                {{EVIDENCE}}
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
