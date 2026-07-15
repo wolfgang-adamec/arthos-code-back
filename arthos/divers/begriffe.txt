@@ -1,0 +1,71 @@
+Kern!!
+
+Schlafsaal
+Bett Einrichtungsgegenstand / ...
+Mittelgang
+Haus Gebäude
+
+
+
+Boardingmaster
+
+
+
+
+
+
+Berufe
+Problem
+Streit
+Frieden
+Schock
+Frage
+Beschwerde
+
+=============================================================
+
+Frage ist eine Äußerung.
+Wie schaut das Szenario aus?
+Stellt man sich einfach so eine Frage? Nein.
+Beschäftigung.
+
+Warum stellt jemand eine Frage?
+Szenario?
+Live. Formular: Warum wollen sie in unser Land einreisen.
+Antwort soll jemanden weiterbringen. Informationen geben.
+
+------------------------------------------------------------------
+
+Bitte um Information, die j-n weiterbringt.
+Aufforderung, eine Information zu geben, die j-n weiterbringt.
+Dahinter liegt ein Interesse, ein Ziel, Motivation.
+Der Kontext ist ein Dialog.
+
+Intelligenz-Test.
+Frage einer Schularbeit.
+Jemand fragt seinen Freund. Was machst du am Wochenende?
+Zollbeamte: Warum wollen sie in unser Land einreisen? Wie lange wollen sie in Deutschland bleiben?
+Wo waren sie am Sonntag? Problem.
+Wie wäscht man diese Wäsche? Wie kann man bei diesem Auto den Tankdeckel öffnen?
+Ich habe jetzt frei, was mache ich am besten.
+
+Regel-Szenario
+
+Kern
+Beispiele
+Szenario
+Kontext
+
+Ko-Hyponyme sind Geschwister, Kollegen.
+
+Katze, Hund, Maus.
+Ferrari, VW.
+Buch, Zeitschrift.
+
+Frage, Befehl, Beschimpfung, Warnung, Bedrohung, Erniedrigung, Angriff. Informationsgebung.
+Alle diese Ko-Hyponyme sind eine Aktion in einem "Dialog" und führen beim ... zu einer Reaktion.
+
+Es gibt den Initiator einer Aktion und es gibt den .
+
+
+
