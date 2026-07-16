@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexem: {{value}} ({{lang}})</title>
+  <link rel="stylesheet" href="../card-style.css">
+</head>
+
+<body>
+  <div class="profile-card">
+    <!-- Header -->
+    <div class="profile-header">
+      <h1>{{value}}</h1>
+      <div class="meta-row">                                                                                                                                      
+        <span class="meta-domain">Detail: {{value_detail}}</span>                                                                                                         
+		<span class="meta-id">ID: {{public_id}}</span>                                                                                                           
+      </div>      
+    </div>
+
+    <!-- Body -->
+    <div class="profile-body">           
+      <!-- Definition -->
+      <div class="section-title">Definition</div>
+      <div class="info-value-4">
+        {{definition_detail}}
+      </div>
+
+      <!-- Ueberbegriff -->
+      <div class="section-title">Überbegriff</div>
+      <div class="info-value">	  
+         {{hypernym}}
+      </div>
+
+      <!-- Links -->
+      <div class="section-title">Links</div>
+	  
+	  <div class="info-value-4">
+        <table class="card-inner-table">
+          <thead>
+            <tr>
+              <th>Begriff</th>
+              <th>ID</th>
+            </tr>
+          </thead>
+          <tbody>
+		    {{links}}
+          </tbody>
+        </table>  
+	  </div>	  
+
+    </div>
+  </div>
+
+</body>
+</html>
+
+

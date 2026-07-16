@@ -184,3 +184,37 @@
   text-underline-offset: 3px; /* Drückt die Linie elegant ein Stück nach unten, damit sie die Buchstaben nicht abschneidet */
   text-decoration-color: #64748b; /* Du kannst der Linie sogar eine eigene, dezentere Farbe geben! */
 }
+
+/* --- Unsichtbare Tabelle innerhalb der Karte --- */
+.card-inner-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;               /* Entfernt den äußeren Rahmen */
+    margin-top: 5px;
+}
+
+/* Kopfzeile der Tabelle (Name, ID) */
+.card-inner-table th {
+    text-align: left;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;             /* Dezentes Grau für die Tabellen-Überschrift */
+    padding: 4px 0;
+    border: none;               /* Keine Linien */
+}
+
+/* Datenzellen (Übernimmt dein "Wert-Blau") */
+.card-inner-table td {
+    padding: 6px 0;
+    font-size: 1em;
+    color: #1a2a3a;             /* Dein typisches, dunkles Wert-Blau/Anthrazit */
+    border: none;               /* Keine Linien */
+}
+
+/* Optionale Ausrichtung für die ID-Spalte (rechtsbündig für sauberen Look) */
+.card-inner-table .id-col {
+    text-align: right;
+    color: #64748b;             /* IDs etwas dezenter darstellen */
+    font-weight: 600;
+}
