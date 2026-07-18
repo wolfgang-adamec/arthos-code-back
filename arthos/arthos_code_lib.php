@@ -594,9 +594,9 @@ function create_mapping ($str_file_path)
 	
     log_message ("create_mapping.header_line", "info");
     log_message ($str_line, "info");
-	
-    $int_pos = strpos ($str_line, "#data-start"); // ret.: int/false.
-    if ($int_pos !== false) {
+	    
+	$bool_result = artos_str_starts_with ($str_line, "#data-start");
+    if ($bool_result === true) {
       log_message ("Punkt erreicht", "info");
       break;
     }
@@ -617,14 +617,14 @@ function create_mapping ($str_file_path)
     log_message ($str_line, "info");
 
     // Kommentare werden einfach ueberlesen.
-    $int_pos = strpos ($str_line, "#comment:"); // ret.: int/false.
-    if ($int_pos !== false) {
+	$bool_result = artos_str_starts_with ($str_line, "##");
+	if ($bool_result === true) {
       continue;	  	
     }
 	
     // Das ist die Abbruchsbedingung.
-    $int_pos = strpos ($str_line, "#data-end"); // ret.: int/false.
-    if ($int_pos !== false) {
+	$bool_result = artos_str_starts_with ($str_line, "#data-end");    
+    if ($bool_result === true) {
       log_message ("Datei-Ende erreicht", "info");		
       break;	  	
     }
@@ -639,48 +639,48 @@ function create_mapping ($str_file_path)
       $str_name_ext = "{{" . $str_name . "}}";         	  
       $str_value    = trim ($arr_parts [1]);	  	  
       $arr_ret_value [$str_name_ext] = $str_value;
-	  
+
       log_message ("Pipe: {$str_name} {$str_value}", "info");		
     }
     else {
       // evidence#value-start
       $bool_result = str_check_hash ($str_line); // ret.: bool.
       if ($bool_result === true) {
-        log_message ("Hash start", "info");				  
-		
+        log_message ("Hash start", "info");
+
         $str_name     = get_hash_name ($str_line);  
-        $str_name_ext = "{{" . $str_name . "}}";         	  
-	$str_value    = get_hash_value ($handle); // ret: str/false.
-		
-	if ($str_value === false) {
-	  log_message ("create_mapping.hash-value", "error");
-	  return false;
-	}
-		
+        $str_name_ext = "{{" . $str_name . "}}";
+        $str_value    = get_hash_value ($handle); // ret: str/false.
+
+        if ($str_value === false) {
+          log_message ("create_mapping.hash-value", "error");
+          return false;
+        }
+
         $arr_ret_value [$str_name_ext] = $str_value;
-		
-	log_message ("Hash: {$str_name} {$str_value}", "info");				
+
+        log_message ("Hash: {$str_name} {$str_value}", "info");
       }
       else {
         // evidence#array-start
         $bool_result = str_check_array ($str_line); // ret.: bool.
         if ($bool_result === true) {
-          log_message ("Array start", "info");				  
-		  
-          $str_name     = get_array_name ($str_line);  
-          $str_name_ext = "{{" . $str_name . "}}";         	  
-	  $str_value    = get_array_value ($handle); // ret: str/false.
+          log_message ("Array start", "info");
+
+          $str_name     = get_array_name ($str_line);
+          $str_name_ext = "{{" . $str_name . "}}";
+          $str_value    = get_array_value ($handle); // ret: str/false.
 
           if ($str_value === false) {
             log_message ("create_mapping.array-value", "error");
             return false;
           }
 
-	  $arr_ret_value [$str_name_ext] = $str_value;		  
-        }		  
+          $arr_ret_value [$str_name_ext] = $str_value;
+        }
       } // check_array
-    }			
-	
+    }
+
   } // while	  
 
   return $arr_ret_value;
