@@ -1,0 +1,66 @@
+Infrastruktur
+=============
+
+
+
+Fähigkeiten:
+1) Schnell auf der Tastatur schreiben können.
+2) Die Sprache Englisch.
+3) Allgemeine Fähigkeiten in der Software-Entwicklung.
+4) Die Programmiersprache PHP.
+
+
+Ökosysteme
+----------
+
+1) Git.
+
+2) HTML + CSS.
+
+3) PHP.
+
+4) Artos.
+
+5) Linux.
+
+
+Begriffe
+--------
+
+Query String
+------------
+Der Query-String ist ein Begriff im Bereich des HTTP-Protokolls.
+Im HTTP-Protokoll gibt es Get-Requests. In einem Get-Request kann die URL einen Teil haben, der durch ein Fragezeichen getrennt ist. 
+Dieser Teil nach dem Fragezeichen ist der Query-String. Er wird verwendet, um der Ressource, die die Basis-URL angibt, Input-Parameter mitzugeben.
+Der Query-String ist nach einer gewissen Syntax aufgebaut. Jeweils ein Parameter ist von den anderen durch ein kaufmännisches Und getrennt.
+Ein Parameter besteht aus dem Parameter-Namen und aus dem Parameter-Wert.
+
+
+
+Bus-Bahnhof
+Fragezeichen
+
+
+
+
+
+
+Funktionen
+----------
+fun.1: prepare_card            (arthos_code_lib.php)
+fun.2: scan_query_string       (arthos_code_lib.php)
+fun.3: check_array_part        (arthos_code_lib.php)
+fun.4: get_full_file_name      (arthos_code_lib.php)
+fun.5: artos_str_starts_with   (arthos_code_lib.php)
+
+
+
+fun.2: query_str_get_value     (arthos_code_lib.php)
+
+
+
+
+
+
+
+Points of interests
