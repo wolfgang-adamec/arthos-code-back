@@ -213,6 +213,7 @@ function get_hash_value ($handle)
 }
 
 /*******************************************************************************
+ * Diese Funktion bearbeitet einen Array-Datensatz im ART-Datenformat.         *
  * Return: string | false.                                                     *                                                                       
  *******************************************************************************/
 function get_array_value ($handle)
@@ -229,34 +230,34 @@ function get_array_value ($handle)
   
   while (true) {
     $str_line = fgets ($handle); // ret.: str./false.
-	if ($str_line === false) {
-	  log_message ("get_array_value.fgets", "error");
+    if ($str_line === false) {
+      log_message ("get_array_value.fgets", "error");
       return false;			
-	}	
+    }	
 	
-	#array-end  
-	$int_pos = strpos ($str_line, "#array-end"); // ret.: int/false.
-	if ($int_pos === false) {
-	  log_message ("array-data", "info");	
-	  log_message ($str_line, "info");		  
+    #array-end  
+    $int_pos = strpos ($str_line, "#array-end"); // ret.: int/false.
+    if ($int_pos === false) {
+      log_message ("array-data", "info");	
+      log_message ($str_line, "info");		  
 
       $int_pos = strpos ($str_line, "|"); // ret.: int/false.
-      if ($int_pos !== false) {
+      if ($int_pos === false) {
         log_message ("get_array_value.no-pipe", "error");
         return false;
-	  }
-	  $arr_parts  = explode ("|", $str_line, 2);
-	  $str_name   = trim ($arr_parts [0]);	  
+      }
+      $arr_parts  = explode ("|", $str_line, 2); // 3. Parameter = limit.
+      $str_name   = trim ($arr_parts [0]);	  
       $str_id     = trim ($arr_parts [1]);	  	  
       
-	  $str_array_value .= "<tr><td>" . $str_name . "</td><td class=\"id-col\">" . $str_id . "</td></tr>";
-	}
+      $str_array_value .= "<tr><td>" . $str_name . "</td><td class=\"id-col\">" . $str_id . "</td></tr>";
+    }
     else {
       log_message ("array_value", "info");
-	  log_message ($str_array_value, "info");
+      log_message ($str_array_value, "info");
 	  
-	  return $str_array_value;	
-	}
+      return $str_array_value;	
+    }
   } // while
 
 }
@@ -329,7 +330,8 @@ function prepare_card ($code, $base_dir)
 
   $str_format = query_str_get_value ($_GET, "format"); // false/str.  
   if ($str_format === false) {
-	$str_format = "normal";  
+    $str_format = "normal";  
+    log_message ("prepare_card.format.default", "info");
   } 
 
   log_message ("ID:     {$str_id}",     "info");
@@ -366,10 +368,10 @@ function prepare_card ($code, $base_dir)
     case "short":
       $template_name = $code . "-short.html";
       break;
-	case "ext":
+    case "ext":
       $template_name = $code . "-extended.html";
       break;
-	default:
+    default:
       log_message ("prepare_card.switch_format", "error");	
       exit;	  
   }	  
@@ -480,18 +482,18 @@ function create_mapping ($file_path)
 		
         $str_name     = get_hash_name ($str_line);  
         $str_name_ext = "{{" . $str_name . "}}";         	  
-	    $str_value    = get_hash_value ($handle); // ret: str/false.
+	$str_value    = get_hash_value ($handle); // ret: str/false.
 		
-	    if ($str_value === false) {
-	      log_message ("create_mapping.hash-value", "error");
-	      return false;
-	    }
+	if ($str_value === false) {
+	  log_message ("create_mapping.hash-value", "error");
+	  return false;
+	}
 		
         $arr_ret_value [$str_name_ext] = $str_value;
 		
-	    log_message ("Hash: {$str_name} {$str_value}", "info");				
+	log_message ("Hash: {$str_name} {$str_value}", "info");				
       }
-	  else {
+      else {
         // evidence#array-start
         $bool_result = str_check_array ($str_line); // ret.: bool.
         if ($bool_result === true) {
@@ -499,10 +501,16 @@ function create_mapping ($file_path)
 		  
           $str_name     = get_array_name ($str_line);  
           $str_name_ext = "{{" . $str_name . "}}";         	  
-	      $str_value    = get_array_value ($handle); // ret: str/false.  
-		  $arr_ret_value [$str_name_ext] = $str_value;		  
-		}		  
-	  }
+	  $str_value    = get_array_value ($handle); // ret: str/false.
+
+          if ($str_value === false) {
+            log_message ("create_mapping.array-value", "error");
+            return false;
+          }
+
+	  $arr_ret_value [$str_name_ext] = $str_value;		  
+        }		  
+      } // check_array
     }			
 	
   } // while	  
