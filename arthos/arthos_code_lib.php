@@ -36,20 +36,22 @@ function find_entry ($arr_files, $int_name_len)
   $str_ret_value = "";
   $str_file_name = "";
   
+  log_message ($int_name_len, "info");
+
   // lexeme_deu_1_3_1_actions_context_dialog.art, lexeme_deu_1_3_1_1_turm.
   // lexeme_deu_1_3_1_  
   
   foreach ($arr_files as $str_path) {
-	log_message ("find_entry_file", "info");	
-	log_message ($str_path,		    "info");	
+    log_message ("find_entry_file", "info");	
+    log_message ($str_path, "info");	
 	
-	// Ich bekomme einen ganzen Pfad zurueck, moechte aber nur den Dateinamen zurueckgeben.
+    // Ich bekomme einen ganzen Pfad zurueck, moechte aber nur den Dateinamen zurueckgeben.
     $str_file_name = basename ($str_path);	
     $char_char     = $str_file_name [$int_name_len];      	  
-	log_message ($int_name_len, "info");	
+    log_message ($int_name_len, "info");	
 	
-	// Prueft, ob alle Zeichen eines Strings Ziffern sind.
-	$bool_digit = ctype_digit ($char_char);
+    // Prueft, ob alle Zeichen eines Strings Ziffern sind.
+    $bool_digit = ctype_digit ($char_char);
     if ($bool_digit === false) {
       $str_ret_value = $str_file_name;
       break;	  
@@ -79,7 +81,7 @@ function get_full_file_name ($str_base_dir, $str_name_part)
   // lexeme_deu_1_3_1_actions_context_dialog.art, lexeme_deu_1_3_1_1_turm.
   // lexeme_deu_1_3_1_
 
-  $int_name_part_len = strlen ($name_part);
+  $int_name_part_len = strlen ($str_name_part);
   $str_suchmuster    = $str_base_dir . DIRECTORY_SEPARATOR . $str_name_part . "*";
 
   $arr_dateien = glob ($str_suchmuster);
@@ -94,7 +96,7 @@ function get_full_file_name ($str_base_dir, $str_name_part)
     $str_file_name = basename ($str_file_path);
   }
   else {
-	$str_file_name = find_entry ($arr_dateien, $int_name_part_len);
+    $str_file_name = find_entry ($arr_dateien, $int_name_part_len);
   }
 
   return $str_file_name;
@@ -323,36 +325,36 @@ function scan_query_string ($arr_query_str)
   }
 
   foreach ($arr_query_str as $str_key => $str_value) {
-	$bool_result = check_array_part ($str_key, $str_value);  
+    $bool_result = check_array_part ($str_key, $str_value);  
     if ($bool_result === false) {
-      log_message ("scan_query_str.error-count", "error");
+      log_message ("scan_query_str.check_array_part", "error");
       return false;
     }
 	
-	$arr_result [$str_key] = $str_value;
+    $arr_result [$str_key] = $str_value;
 	
-	if ($str_key === "id") {
-	  $bool_id_set = true;
-	}
-	if ($str_key === "lang") {
-	  $bool_lang_set = true;
-	}
-	if ($str_key === "format") {
-	  $bool_format_set = true;
-	}	
+    if ($str_key === "id") {
+      $bool_id_set = true;
+    }
+    if ($str_key === "lang") {
+      $bool_lang_set = true;
+    }
+    if ($str_key === "format") {
+      $bool_format_set = true;
+    }	
   }  
   
   if (($bool_id_set   === true) &&
-	  ($bool_lang_set === true)) {
+      ($bool_lang_set === true)) {
     $int_dummy = 0;		  
   }		  
   else {
     log_message ("scan_query_str.err-not-all", "error");
-    break;	  	  
+    return false;	  	  
   }	  
 
   if ($bool_format_set === false) {
-	$arr_result ["format"] = "normal";  
+    $arr_result ["format"] = "normal";  
   }
   
   return $arr_result;
@@ -438,14 +440,19 @@ function artos_str_starts_with ($str_par_value, $str_par_substr)
   $str_substr     = "";
   $int_len_substr = 0;
   
-  $int_len_substr = strlen (str_par_substr);
-  $str_substr     = substr (str_par_value, 0, $int_len_substr - 1);
+  $int_len_substr = strlen ($str_par_substr);
+  $str_substr     = substr ($str_par_value, 0, $int_len_substr);
+
+  log_message ("sub",           "info");
+  log_message ($str_par_substr, "info");
+  log_message ("norm",          "info");
+  log_message ($str_substr,     "info");
   
   if ($str_par_substr === $str_substr) {
-	return true;
+    return true;
   }
   else {
-	return false;  
+    return false;  
   }	  
 
 }
@@ -570,7 +577,7 @@ function create_mapping ($str_file_path)
   $str_name_ext  = "";
   $str_value     = "";
   
-  $bool_result = file_exists ($file_path);
+  $bool_result = file_exists ($str_file_path);
   
   if ($bool_result === false) {
     log_message ("create_mapping.file_does_not_exist", "error");
@@ -595,7 +602,7 @@ function create_mapping ($str_file_path)
     log_message ("create_mapping.header_line", "info");
     log_message ($str_line, "info");
 	    
-	$bool_result = artos_str_starts_with ($str_line, "#data-start");
+    $bool_result = artos_str_starts_with ($str_line, "#data-start");
     if ($bool_result === true) {
       log_message ("Punkt erreicht", "info");
       break;
@@ -617,13 +624,13 @@ function create_mapping ($str_file_path)
     log_message ($str_line, "info");
 
     // Kommentare werden einfach ueberlesen.
-	$bool_result = artos_str_starts_with ($str_line, "##");
-	if ($bool_result === true) {
+    $bool_result = artos_str_starts_with ($str_line, "##");
+    if ($bool_result === true) {
       continue;	  	
     }
 	
     // Das ist die Abbruchsbedingung.
-	$bool_result = artos_str_starts_with ($str_line, "#data-end");    
+    $bool_result = artos_str_starts_with ($str_line, "#data-end");    
     if ($bool_result === true) {
       log_message ("Datei-Ende erreicht", "info");		
       break;	  	
