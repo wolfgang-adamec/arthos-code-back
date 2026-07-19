@@ -1,264 +1,344 @@
 <?php
 
 /*******************************************************************************
- * Dokument: artos_code_lib.php.                                               *
+ * Dokument: artos_code_fun.php.                                               *
  * Author:   Wolfgang Adamec.                                                  *
  * Date:     2026-06-26.                                                       *
  * License:  Apache 2.0.                                                       *
  * Encoding: ANSI.                                                             *
+ *                                                                             *
+ * Used functions:                                                             *
+ * basename                                                                    *
+ * count                                                                       *
+ * ctype_digit                                                                 *
+ * date                                                                        *
+ * explode                                                                     *
+ * fgets                                                                       *
+ * file_put_contents                                                           *
+ * glob                                                                        *
+ * strlen                                                                      *
+ * strpos                                                                      *
+ * substr                                                                      *
+ * date                                                                        *
+ * date                                                                        *
+ * date                                                                        *
+ * date                                                                        *
  *******************************************************************************/          
 
 /*******************************************************************************
  *                                                                             *
  *******************************************************************************/
-function log_message ($message, $level) 
+function art_log_message ($str_par_message, $str_par_level) 
 {
-  // Log-Datei im selben Verzeichnis (oder einem dedizierten /logs/ Ordner)
-  $logFile = __DIR__ . '/person_id.log';
+  $bool_result      = false;
+  $str_log_entry    = "";
+  $str_log_file     = "";
+  $str_fn_timestamp = "";
     
-  $timestamp = date ('Y-m-d H:i:s');    
+  $str_log_file = __DIR__ . "/artos_code_fun.log";
     
-  $logEntry = "[$timestamp] [$level] $message\n";
+  $str_fn_timestamp = date ('Y-m-d H:i:s');
     
-  // Sicherstellen, dass in die Datei geschrieben werden darf
-  file_put_contents ($logFile, $logEntry, FILE_APPEND);
+  $str_log_entry = "[$str_fn_timestamp] [$str_par_level] $str_par_message\n";   
+  
+  file_put_contents ($str_log_file, $str_log_entry, FILE_APPEND);
 }
 
 /*******************************************************************************
+ * If an associative array, that is the return value of a search function,     *
+ * has multiple entries, this function determines the right one.               *
+ *                                                                             *
  * In dieser Funktion wird aus mehreren Dateinamen derjenige herausgesucht,    *
  * der an einer bestimmten Stelle im Namen einen Buchstaben hat und keine      *
  * Ziffer.                                                                     *
+ *                                                                             *
+ * Input parameters:                                                           *
+ * 1) arr_par_file_names: This array contains multiple file names.             *
+ * 2) int_name_len:       This is the length of the partial file name.         *
+ *                                                                             *
+ * Return value: str_file_name | false.                                        *                                                                                        
+ *               A file name is returned.                                      *
  *******************************************************************************/
-function find_entry ($arr_files, $int_name_len)
+function art_find_entry ($arr_par_file_names, $int_par_name_len)
 {  
-  $char_char     = "";
-  $bool_digit    = false;
-  $str_ret_value = "";
-  $str_file_name = "";
+  $char_char        = "";
+  $bool_digit       = false;
+  $str_mn_ret_value = "";
+  $str_fn_file_name = "";
+  $str_path         = "";
   
-  log_message ($int_name_len, "info");
+  art_log_message ($int_par_name_len, "info");
 
   // lexeme_deu_1_3_1_actions_context_dialog.art, lexeme_deu_1_3_1_1_turm.
   // lexeme_deu_1_3_1_  
   
-  foreach ($arr_files as $str_path) {
-    log_message ("find_entry_file", "info");	
-    log_message ($str_path, "info");	
-	
-    // Ich bekomme einen ganzen Pfad zurueck, moechte aber nur den Dateinamen zurueckgeben.
-    $str_file_name = basename ($str_path);	
-    $char_char     = $str_file_name [$int_name_len];      	  
-    log_message ($int_name_len, "info");	
-	
-    // Prueft, ob alle Zeichen eines Strings Ziffern sind.
+  // Php does not know of a block scope for for each structures.
+  
+  foreach ($arr_par_file_names as $str_path) {
+    art_log_message ("find_entry_file", "info");	
+    art_log_message ($str_path, "info");	
+	    
+	// A full path is returned but only the name portion is needed.
+    $str_fn_file_name = basename ($str_path);	
+    $char_char        = $str_fn_file_name [$int_par_name_len];      	  
+    art_log_message ($int_par_name_len, "info");	
+	    
+	// Checks, if all characters of a string are cifers.
     $bool_digit = ctype_digit ($char_char);
     if ($bool_digit === false) {
-      $str_ret_value = $str_file_name;
-      break;	  
+      $str_mn_ret_value = $str_fn_file_name;
+      return $str_mn_ret_value;	  
     }		
   }	  
   
-  return $str_ret_value;
+  return false;
 }
 
 /*******************************************************************************
+ * The function gets a part of a file name and tries to determine the whole    *
+ * file name.                                                                  *
  *                                                                             *
  * Input parameters:                                                           *
  * 1) str_base_dir                                                             *
  * 2) str_name_part                                                            *
  *                                                                             *
  * Return value: str_file_name | false.                                        *                                                                                        
+ *               The full name of a file is returned.                          *
  *******************************************************************************/
-function get_full_file_name ($str_base_dir, $str_name_part)
+function art_get_full_file_name ($str_par_base_dir, $str_par_name_part)
 {
-  $arr_dateien       = [];
-  $str_suchmuster    = "";
-  $int_count         = 0;
-  $str_file_name     = "";
-  $str_file_path     = "";
-  $int_name_part_len = 0;
+  $arr_fn_file_names     = [];
+  $str_search_pattern    = "";
+  $int_fn_count          = 0;
+  $int_fn_name_part_len  = 0;
+  $str_file_path         = "";
+  $str_mn_full_file_name = "";
 
   // lexeme_deu_1_3_1_actions_context_dialog.art, lexeme_deu_1_3_1_1_turm.
   // lexeme_deu_1_3_1_
 
-  $int_name_part_len = strlen ($str_name_part);
-  $str_suchmuster    = $str_base_dir . DIRECTORY_SEPARATOR . $str_name_part . "*";
+  $int_fn_name_part_len = strlen ($str_par_name_part);
+  $str_search_pattern   = $str_par_base_dir . DIRECTORY_SEPARATOR . $str_par_name_part . "*";
 
-  $arr_dateien = glob ($str_suchmuster);
-  if ($arr_dateien === false) {
+  $arr_fn_file_names = glob ($str_search_pattern);
+  if ($arr_fn_file_names === false) {
     return false;
   }
 
-  $int_count = count ($arr_dateien);
-  if ($int_count === 1) {
-    $str_file_path = $arr_dateien [0];
-    // Ich bekomme einen ganzen Pfad zurueck, moechte aber nur den Dateinamen zurueckgeben.
-    $str_file_name = basename ($str_file_path);
+  $int_fn_count = count ($arr_fn_file_names);
+  if ($int_fn_count === 1) {
+    $str_file_path = $arr_fn_file_names [0];
+	// A full path is returned, but only the file name portion is needed.    
+    $str_mn_full_file_name = basename ($str_file_path);
   }
   else {
-    $str_file_name = find_entry ($arr_dateien, $int_name_part_len);
+    $str_mn_full_file_name = art_find_entry ($arr_dateien, $int_name_part_len);
   }
 
-  return $str_file_name;
+  return $str_mn_full_file_name;
 }
 
 /*******************************************************************************
- * Return: true | false.                                                       *                                                                       
+ * This function checks, if a block structure begins.                          *
+ *                                                                             *
+ * Input parameter:                                                            *
+ * 1) str_par_line: A line of an artos file                                    * 
+ *                                                                             *
+ * Return value: true | false.                                                 * 
+ *               The return value gives the information, if a block structure  *
+ *               begins or not.                                                *
  *******************************************************************************/
-function str_check_hash ($str_line)
+function art_check_block ($str_par_line)
 {
-  $int_pos = 0;
+  $int_pos       = 0;
+  $bool_mn_value = false;
   
   // evidence#value-start (8).
-  $int_pos = strpos ($str_line, "#value-start"); // ret.: int/false.
+  $int_pos = strpos ($str_par_line, "#value-start"); // ret.: int/false.
   if ($int_pos === false) {
-    return false;
+	$bool_mn_value = false;  
   }
-  
-  return true;  
+  else {
+	$bool_mn_value = true;
+  }
+   
+  return $bool_mn_value;  
 }
 
 /*******************************************************************************
- * Return: true | false.                                                       *                                                                       
+ * This function checks, if a block structure begins.                          *
+ *                                                                             *
+ * Input parameter:                                                            *
+ * 1) str_par_line: A line of an artos file                                    * 
+ *                                                                             *
+ * Return value: true | false.                                                 *                                                                       
+ *               The return value gives the information, if a array structure  *
+ *               begins or not.                                                *
  *******************************************************************************/
-function str_check_array ($str_line)
+function art_check_array ($str_par_line)
 {
-  $int_pos = 0;
+  $int_pos       = 0;
+  $bool_mn_value = false;
   
   // evidence#array-start (8).
-  $int_pos = strpos ($str_line, "#array-start"); // ret.: int/false.
+  $int_pos = strpos ($str_par_line, "#array-start"); // ret.: int/false.
   if ($int_pos === false) {
-    return false;
+	$bool_mn_value = false;  
   }
+  else {
+	$bool_mn_value = true;  	  
+  }  
   
-  return true;  
+  return $bool_mn_value;  
 }
 
 /*******************************************************************************
  * This function gets the name of the block structure.                         *
  *                                                                             *
+ * Input parameter:                                                            *
+ * 1) str_par_line: A line of an artos file                                    * 
+ *                                                                             *
  * Return value: string | false.                                               *                                                                       
  *******************************************************************************/
 function art_get_block_name ($str_par_line)
 { 
-  $bool_result = false;
-  $int_pos     = 0;
-  $str_result  = "";
+  $bool_result       = false;
+  $int_fn_pos        = 0;
+  $str_mn_block_name = "";
   
-  $bool_result = str_check_hash ($str_line);
+  $bool_result = art_check_block ($str_par_line);
   if ($bool_result === false) {
-	log_message ("get_hash_name.check_hash", "error");
+	art_log_message ("art_get_block_name.art_check_block", "error");
 	return false;
   }   
  
   // evidence#value-start (8).
-  $int_pos    = strpos ($str_line, "#value-start"); // ret.: int/false.
-  $str_result = substr ($str_line, 0, $int_pos);  
+  $int_fn_pos        = strpos ($str_par_line, "#value-start"); // ret.: int/false.
+  $str_mn_block_name = substr ($str_par_line, 0, $int_fn_pos);  
 
-  log_message ("hash name", "info");
-  log_message ($str_result, "info");
+  art_log_message ("hash name",        "info");
+  art_log_message ($str_mn_block_name, "info");
 
-  return $str_result;
+  return $str_mn_block_name;
 }
 
 /*******************************************************************************
+ * This function gets the name of the array structure.                         *
+ *                                                                             *
+ * Input parameter:                                                            *
+ * 1) str_par_line: A line of an artos file                                    * 
+ *                                                                             *
  * Return: string | false.                                                     *                                                                       
  *******************************************************************************/
-function get_array_name ($str_line)
+function art_get_array_name ($str_par_line)
 { 
-  $bool_result = false;
-  $int_pos     = 0;
-  $str_result  = "";
+  $bool_result       = false;
+  $int_fn_pos        = 0;
+  $str_mn_array_name = "";
   
-  $bool_result = str_check_array ($str_line);
+  $bool_result = art_check_array ($str_par_line);
   if ($bool_result === false) {
-	log_message ("get_array_name.check_array", "error");
+	art_log_message ("art_get_array_name.art_check_array", "error");
 	return false;
   }   
  
   // evidence#array-start (8).
-  $int_pos    = strpos ($str_line, "#array-start"); // ret.: int/false.
-  $str_result = substr ($str_line, 0, $int_pos);  
+  $int_fn_pos        = strpos ($str_par_line, "#array-start"); // ret.: int/false.  
+  $str_mn_array_name = substr ($str_par_line, 0, $int_fn_pos);  
 
-  return $str_result;
+  return $str_mn_array_name;
 }
 
 /*******************************************************************************
+ * This function gets the value of a block structure.                          *
+ *                                                                             *
+ * Input parameter:                                                            *
+ * 1) str_par_line: A line of an artos file                                    * 
+ *                                                                             *
  * Return: string | false.                                                     *                                                                       
  *******************************************************************************/
-function get_hash_value ($handle)
+function art_get_block_value ($res_par_handle)
 { 
-  $bool_start     = true;
-  $int_pos        = 0;
-  $str_hash_value = "";
-  $str_line       = "";
+  $bool_result     = false;
+  $bool_start      = false;
+  $int_pos         = 0;
+  $str_block_value = "";
+  $str_fn_line     = "";
+     
+  art_log_message ("art_get_block_value.start", "info");
   
-  log_message ("get_hash_value.start", "info");
+  $bool_start = true;
   
   while (true) {
-    $str_line = fgets ($handle); // ret.: str./false.
-	if ($str_line === false) {
-	  log_message ("get_hash_value.fgets", "error");
+    $str_fn_line = fgets ($res_par_handle); // ret.: str./false.
+	if ($str_fn_line === false) {
+	  art_log_message ("art_get_block_value.fgets", "error");
       return false;			
 	}	
 	
 	#value-end  
-	$int_pos = strpos ($str_line, "#value-end"); // ret.: int/false.
-	if ($int_pos === false) {
-	  log_message ("hash-data", "info");	
-	  log_message ($str_line, "info");	
+    $bool_result = artos_str_starts_with ($str_fn_line, "#value-end");
+    if ($bool_result === false) {	
+	  art_log_message ("block-data", "info");	
+	  art_log_message ($str_fn_line, "info");	
 	  
-	  $str_line = trim ($str_line);
+	  $str_fn_line = trim ($str_fn_line);
 	  if ($bool_start === false) {
-		$str_hash_value .= " ";
+		$str_block_value .= " ";
 	  }
 	  else {
 		$bool_start = false;
 	  }
-	  $str_hash_value .= $str_line;
+	  $str_block_value .= $str_fn_line;
 	}
     else {
-      log_message ("hash_value", "info");
-	  log_message ($str_hash_value, "info");
+      art_log_message ("block_value", "info");
+	  art_log_message ($str_block_value, "info");
 	  
-	  return $str_hash_value;	
+	  return $str_block_value;	
 	}
   } // while
 
 }
 
 /*******************************************************************************
+ * This function gets the value of a block structure.                          *
+ *                                                                             *
+ * Input parameter:                                                            *
+ * 1) str_par_line: A line of an artos file                                    * 
+ *                                                                             *
  * Diese Funktion bearbeitet einen Array-Datensatz im ART-Datenformat.         *
  * Return: string | false.                                                     *                                                                       
  *******************************************************************************/
-function get_array_value ($handle)
+function art_get_array_value ($res_par_handle)
 { 
+  $bool_result     = false;
   $bool_start      = true;
   $int_pos         = 0;
   $str_array_value = "";
-  $str_line        = "";
+  $str_fn_line     = "";
   $str_name        = "";
   $str_id          = "";
   $arr_parts       = [];
   
-  log_message ("get_array_value.start", "info");
+  art_log_message ("art_get_array_value.start", "info");
   
   while (true) {
-    $str_line = fgets ($handle); // ret.: str./false.
-    if ($str_line === false) {
-      log_message ("get_array_value.fgets", "error");
+    $str_fn_line = fgets ($res_par_handle); // ret.: str./false.
+    if ($str_fn_line === false) {
+      art_log_message ("art_get_array_value.fgets", "error");
       return false;			
     }	
 	
     #array-end  
-    $int_pos = strpos ($str_line, "#array-end"); // ret.: int/false.
-    if ($int_pos === false) {
-      log_message ("array-data", "info");	
-      log_message ($str_line, "info");		  
+    $bool_result = artos_str_starts_with ($str_fn_line, "#value-end");
+    if ($bool_result === false) {	
+      art_log_message ("array-data", "info");	
+      art_log_message ($str_fn_line, "info");		  
 
-      $int_pos = strpos ($str_line, "|"); // ret.: int/false.
+      $int_pos = strpos ($str_fn_line, "|"); // ret.: int/false.
       if ($int_pos === false) {
-        log_message ("get_array_value.no-pipe", "error");
+        log_message ("art_get_array_value.no-pipe", "error");
         return false;
       }
       $arr_parts  = explode ("|", $str_line, 2); // 3. Parameter = limit.

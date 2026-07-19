@@ -2,6 +2,32 @@ Infrastruktur
 =============
 
 
+Benötigt:
+
+a) Gegenstände:
+   ------------
+   1) Windows PC.
+   2) Externe Festplatte.
+      Erste Dateien ca. 2019.
+
+
+b) Software
+   --------
+   Apache Web Server.
+   Rapid Environment Editor.
+   Git.
+   
+   
+c) ....
+   ----
+   www.freeshell.de-Webspace.
+   github: Space für git.
+   
+
+
+
+
+
 
 Fähigkeiten:
 1) Schnell auf der Tastatur schreiben können.
@@ -55,9 +81,17 @@ fun.5: artos_str_starts_with   (arthos_code_lib.php)
 
 
 
-fun.2: query_str_get_value     (arthos_code_lib.php)
 
 
+art_check_array         (artos_code_fun.php) ok
+art_check_block         (artos_code_fun.php) ok
+art_find_entry          (artos_code_fun.php) ok
+art_get_block_name      (artos_code_fun.php) ok
+art_get_block_value     (artos_code_fun.php) ok
+art_get_array_name      (artos_code_fun.php) ok 
+art_get_full_file_name  (artos_code_fun.php) ok 
+art_log_message         (artos_code_fun.php) ok 
+art_prepare_card        (artos_code_fun.php)
 
 
 

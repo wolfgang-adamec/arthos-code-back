@@ -8,20 +8,23 @@
  * Encoding: ANSI.                                                             *
  *******************************************************************************/          
  
-  require_once __DIR__ . "/../arthos_code_lib.php";
+  require_once __DIR__ . "/../artos_code_fun.php";
+
+  $str_fn_base_dir = "";
+  $str_mn_card     = "";
+
+  $str_fn_base_dir = __DIR__;
 
   log_message ("-----------------------", "info");
   log_message ("New call.",               "info");
  
-  $base_dir = __DIR__;
-
-  $str_card = prepare_card ("person", $base_dir); // false/str.
-  if ($str_card === false) {
+  $str_mn_card = art_prepare_card ("person", $str_fn_base_dir); // false/str.
+  if ($str_mn_card === false) {
     log_message ("main.prepare_card", "error");
     exit;
   }  
 
   // Das fertige Ergebnis an den Browser senden
-  echo $str_card;
+  echo $str_mn_card;
 ?>
 
