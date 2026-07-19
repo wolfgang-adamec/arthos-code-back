@@ -15,12 +15,12 @@
 
   $str_fn_base_dir = __DIR__;
     
-  log_message ("-----------------------", "info");
-  log_message ("New call.",               "info");
+  art_log_message ("-----------------------", "info");
+  art_log_message ("New call.",               "info");
  
   $str_mn_card = art_prepare_card ("lexeme", $str_fn_base_dir); // false/str.
   if ($str_mn_card === false) {
-    log_message ("main.prepare_card", "error");
+    art_log_message ("main.prepare_card", "error");
     exit;
   }  
 

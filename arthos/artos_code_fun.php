@@ -14,15 +14,14 @@
  * date                                                                        *
  * explode                                                                     *
  * fgets                                                                       *
+ * file_exists                                                                 *
  * file_put_contents                                                           *
  * glob                                                                        *
+ * php_sapi_name                                                               * 
  * strlen                                                                      *
  * strpos                                                                      *
+ * str_replace                                                                 *
  * substr                                                                      *
- * date                                                                        *
- * date                                                                        *
- * date                                                                        *
- * date                                                                        *
  *******************************************************************************/          
 
 /*******************************************************************************
@@ -312,14 +311,14 @@ function art_get_block_value ($res_par_handle)
  *******************************************************************************/
 function art_get_array_value ($res_par_handle)
 { 
-  $bool_result     = false;
-  $bool_start      = true;
-  $int_pos         = 0;
-  $str_array_value = "";
-  $str_fn_line     = "";
-  $str_name        = "";
-  $str_id          = "";
-  $arr_parts       = [];
+  $bool_result        = false;
+  $bool_start         = true;
+  $int_pos            = 0;
+  $str_mn_array_value = "";
+  $str_fn_line        = "";
+  $str_name           = "";
+  $str_id             = "";
+  $arr_fn_parts       = [];
   
   art_log_message ("art_get_array_value.start", "info");
   
@@ -341,17 +340,17 @@ function art_get_array_value ($res_par_handle)
         log_message ("art_get_array_value.no-pipe", "error");
         return false;
       }
-      $arr_parts  = explode ("|", $str_line, 2); // 3. Parameter = limit.
-      $str_name   = trim ($arr_parts [0]);	  
-      $str_id     = trim ($arr_parts [1]);	  	  
+      $arr_fn_parts = explode ("|", $str_fn_line, 2); // 3. Parameter = limit.
+      $str_name     = trim ($arr_fn_parts [0]);	  
+      $str_id       = trim ($arr_fn_parts [1]);	  	  
       
-      $str_array_value .= "<tr><td>" . $str_name . "</td><td class=\"id-col\">" . $str_id . "</td></tr>";
+      $str_mn_array_value .= "<tr><td>" . $str_name . "</td><td class=\"id-col\">" . $str_id . "</td></tr>";
     }
     else {
-      log_message ("array_value", "info");
-      log_message ($str_array_value, "info");
+      art_log_message ("array_value", "info");
+      art_log_message ($str_array_value, "info");
 	  
-      return $str_array_value;	
+      return $str_mn_array_value;	
     }
   } // while
 
@@ -364,56 +363,34 @@ function art_get_array_value ($res_par_handle)
  * Input parameters:                                                           *
  * 1) arr_query_string                                                         *
  *                                                                             *
- * Return value: Mapping (Ass. Array) | false.                                 *                                                                                     
- *******************************************************************************/
-function query_str_get_value ($arr_query_str, $str_attr)
-{
-  $bool_result = false;
-  $str_return  = "";         
-   
-  $bool_result = array_key_exists ($str_attr, $arr_query_str);
-  
-  if ($bool_result === false) {
-    return false;
-  }
-  
-  $str_return = $arr_query_str [$str_attr];
-  
-  return $str_return;
-}
-
-/*******************************************************************************
- * This function processes the whole associative array with the input          *                                                                       
- * parameters.                                                                 *
- *
- * Input parameters:                                                           *
- * 1) arr_query_string                                                         *
- *                                                                             *
  * Return value: Ass. Array | false.                                           *                                                                                     
  *******************************************************************************/
-function scan_query_string ($arr_query_str)
+function art_scan_query_string ($arr_par_query_str)
 {
-  $arr_result      = [];
-  $int_anzahl      = 0;
+  $arr_mn_result   = [];
+  $int_fn_anzahl   = 0;
   $int_dummy       = 0;
   $bool_id_set     = false;
   $bool_lang_set   = false;
   $bool_format_set = false;  
+  $bool_result     = false;
+  $str_key		   = "";
+  $str_value       = "";
   
-  $int_anzahl = count ($arr_query_str);
-  if (($int_anzahl !== 2) && ($int_anzahl !== 3)) {
-    log_message ("scan_query_str.error-count", "error");
+  $int_fn_anzahl = count ($arr_par_query_str);
+  if (($int_fn_anzahl !== 2) && ($int_anzahl !== 3)) {
+    art_log_message ("art_scan_query_str.error-count", "error");
     return false;	  
   }
 
-  foreach ($arr_query_str as $str_key => $str_value) {
-    $bool_result = check_array_part ($str_key, $str_value);  
+  foreach ($arr_par_query_str as $str_key => $str_value) {
+    $bool_result = art_check_name_value ($str_key, $str_value);  
     if ($bool_result === false) {
-      log_message ("scan_query_str.check_array_part", "error");
+      art_log_message ("art_scan_query_string.art_check_name_value", "error");
       return false;
     }
 	
-    $arr_result [$str_key] = $str_value;
+    $arr_mn_result [$str_key] = $str_value;
 	
     if ($str_key === "id") {
       $bool_id_set = true;
@@ -431,15 +408,15 @@ function scan_query_string ($arr_query_str)
     $int_dummy = 0;		  
   }		  
   else {
-    log_message ("scan_query_str.err-not-all", "error");
+    art_log_message ("art_scan_query_string.err-not-all", "error");
     return false;	  	  
   }	  
 
   if ($bool_format_set === false) {
-    $arr_result ["format"] = "normal";  
+    $arr_mn_result ["format"] = "normal";  
   }
   
-  return $arr_result;
+  return $arr_mn_result;
 }
 
 /*******************************************************************************
@@ -451,43 +428,43 @@ function scan_query_string ($arr_query_str)
  *                                                                             *
  * Return values: true | false.                                                *                                                                                     
  *******************************************************************************/
-function check_array_part ($str_key, $str_value)
+function art_check_name_value ($str_par_key, $str_par_value)
 {
   $int_value_len = 0;
 
-  $int_value_len = strlen ($str_value);
+  $int_value_len = strlen ($str_par_value);
   
   if ($int_value_len === 0) {
-	log_message ("check_array_part.error-len-0", "error");
+	art_log_message ("art_check_name_value.error-len-0", "error");
 	return false;
   }
 
-  if (($str_key !== "id"    ) &&
-      ($str_key !== "lang"  ) &&
-      ($str_key !== "format")) {
-	log_message ("check_array_part.err-key", "error");
+  if (($str_par_key !== "id"    ) &&
+      ($str_par_key !== "lang"  ) &&
+      ($str_par_key !== "format")) {
+	art_log_message ("art_check_name_value.err-key", "error");
 	return false;		  
   }
 
-  if ($str_key === "id") {
+  if ($str_par_key === "id") {
     if ($int_value_len === 0) {
-	  log_message ("check_array_part.err-len-id", "error");
+	  art_log_message ("art_check_name_value.err-len-id", "error");
 	  return false;		
     }
   }
   
-  if ($str_key === "lang") {
+  if ($str_par_key === "lang") {
     if ($int_value_len !== 3) {
-	  log_message ("check_array_part.err-len-lang", "error");
+	  art_log_message ("art_check_name_value.err-len-lang", "error");
 	  return false;
     }  
   }
   
-  if ($str_key === "format") {
-    if (($str_value !== "normal") &&
-        ($str_value !== "short" ) &&
-		($str_value !== "ext"   )) {
-	  log_message ("check_array_part.err-format-value", "error");
+  if ($str_par_key === "format") {
+    if (($str_par_value !== "normal") &&
+        ($str_par_value !== "short" ) &&
+		($str_par_value !== "ext"   )) {
+	  art_log_message ("art_check_name_value.err-format-value", "error");
 	  return false;  
     }
   }
@@ -498,14 +475,17 @@ function check_array_part ($str_key, $str_value)
 /*******************************************************************************
  * In dieser Funktion wird der Inhalt eines assoziativen Arrays ausgedruckt.   *                                                                                       
  *******************************************************************************/
-function log_mapping ($arr_mapping)
+function art_log_mapping ($arr_par_mapping)
 {
   $str_log_line = "";
+  $str_name     = "";
+  $str_value    = "";
   
-  foreach ($arr_mapping as $str_name => $str_value) {
+  foreach ($arr_par_mapping as $str_name => $str_value) {
     $str_log_line .= "{$str_name}: {$str_value}\n";	  
   }
-  log_message ($str_log_line, "info");
+  
+  art_log_message ($str_log_line, "info");
 }
 
 /*******************************************************************************
@@ -517,20 +497,20 @@ function log_mapping ($arr_mapping)
  *                                                                             *
  * Return value: true | false.                                                 *                                                                                         
  *******************************************************************************/
-function artos_str_starts_with ($str_par_value, $str_par_substr)
+function art_str_starts_with ($str_par_value, $str_par_substr)
 {
-  $str_substr     = "";
-  $int_len_substr = 0;
+  $str_fn_substr     = "";
+  $int_fn_len_substr = 0;
   
-  $int_len_substr = strlen ($str_par_substr);
-  $str_substr     = substr ($str_par_value, 0, $int_len_substr);
+  $int_fn_len_substr = strlen ($str_par_substr);
+  $str_fn_substr     = substr ($str_par_value, 0, $int_fn_len_substr);
 
-  log_message ("sub",           "info");
-  log_message ($str_par_substr, "info");
-  log_message ("norm",          "info");
-  log_message ($str_substr,     "info");
+  art_log_message ("sub",           "info");
+  art_log_message ($str_par_substr, "info");
+  art_log_message ("norm",          "info");
+  art_log_message ($str_fn_substr,  "info");
   
-  if ($str_par_substr === $str_substr) {
+  if ($str_par_substr === $str_fn_substr) {
     return true;
   }
   else {
@@ -550,7 +530,7 @@ function artos_str_starts_with ($str_par_value, $str_par_substr)
  *                                                                             *
  * Return value: Mapping (Ass. Array) | false.                                 *                                                                                       
  *******************************************************************************/
-function prepare_card ($str_par_code, $str_par_base_dir)
+function art_prepare_card ($str_par_code, $str_par_base_dir)
 {
   $str_web_id            = "";
   $str_web_lang          = "";
@@ -572,9 +552,9 @@ function prepare_card ($str_par_code, $str_par_base_dir)
 	$_GET["format"] = "normal";
   }
 
-  $arr_fn_input_params = scan_query_string ($_GET);
+  $arr_fn_input_params = art_scan_query_string ($_GET);
   if ($arr_fn_input_params === false) {
-    log_message ("prepare_card.scan_query_string", "error");	
+    art_log_message ("art_prepare_card.art_scan_query_string", "error");	
     return false;	  
   }	  
 
@@ -585,34 +565,35 @@ function prepare_card ($str_par_code, $str_par_base_dir)
   $str_web_lang   = $arr_fn_input_params ["lang"];
   $str_web_format = $arr_fn_input_params ["format"];  
 
-  log_message ("ID:     {$str_web_id}",     "info");
-  log_message ("lang:   {$str_web_lang}",   "info");
-  log_message ("format: {$str_web_format}", "info");
+  art_log_message ("ID:     {$str_web_id}",     "info");
+  art_log_message ("lang:   {$str_web_lang}",   "info");
+  art_log_message ("format: {$str_web_format}", "info");
 
   // lexeme_deu_1_4_1_weg.art
 
   $str_web_id         = str_replace (".", "_", $str_web_id);  
   $str_file_name_part = $str_par_code . "_" . $str_web_lang . "_" . $str_web_id . "_";
   
-  log_message ($str_file_name_part, "info");
+  art_log_message ($str_file_name_part, "info");
   
-  $str_fn_file_name_full = get_full_file_name ($str_par_base_dir, $str_file_name_part);
+  $str_fn_file_name_full = art_get_full_file_name ($str_par_base_dir, $str_file_name_part);
   if ($str_fn_file_name_full === false) {
-    log_message ("prepare_card.get_full_file_name", "error");
+    art_log_message ("art_prepare_card.art_get_full_file_name", "error");
     return false;
   }
 
-  log_message ($str_fn_file_name_full, "info");
+  art_log_message ($str_fn_file_name_full, "info");
 
   // Aus dem Inhalt der ART-Datei wird fuer das HTML-Template ein Mapping erstellt.
-  $arr_fn_data_map = create_mapping ($str_fn_file_name_full); 
-  log_mapping ($arr_fn_data_map);  
+  // The function "art_create_mapping" creates a mapping from the ART file, and this mapping is used later for the html template.
+  $arr_fn_data_map = art_create_mapping ($str_fn_file_name_full); 
+  art_log_mapping ($arr_fn_data_map);  
   if ($arr_fn_data_map === false) {
-    log_message ("prepare_card.create_mapping", "error");	
+    art_log_message ("art_prepare_card.art_create_mapping", "error");	
     return false;
   }	  
   
-  log_message ("nach create_mapping", "info");
+  art_log_message ("nach create_mapping", "info");
 
   // lexeme-template.html, lexeme-short.html, lexeme-extended.html
   switch ($str_web_format) {
@@ -626,26 +607,29 @@ function prepare_card ($str_par_code, $str_par_base_dir)
       $str_template_name = $str_par_code . "-extended.html";
       break;
     default:
-      log_message ("prepare_card.switch_format", "error");	
+      art_log_message ("art_prepare_card.switch_format", "error");	
       return false;	  
   }	  
-
-  // Die HTML-Vorlage reinen Text vom Linux-Server einlesen
+  
+  // The template is beeing transferred into the variable.
   $str_fn_html_template = file_get_contents ($str_template_name);
-
-  // Platzhalter durch echte Daten ersetzen.
+  
+  // The placeholders are being replaced by real data.
   $str_mn_output = strtr ($str_fn_html_template, $arr_fn_data_map);
  
   return $str_mn_output; 
 }
 
 /*******************************************************************************
- * In dieser Funktion wird aus dem Inhalt einer ART-Datei fuer das HTML-       *
- * Template ein Mapping erstellt.                                              *
+ * The function creates a mapping from the contents of the ART file. This      *
+ * mapping is later used in a template rendering process.                      * 
+ *                                                                             *
+ * Input parameter:                                                            *
+ * 1) str_par_file_path: This is the path to an artos file.                    *
  *                                                                             *
  * Return value: Mapping (Ass. Array) | false.                                 *                                                                                       
  *******************************************************************************/
-function create_mapping ($str_par_file_path)
+function art_create_mapping ($str_par_file_path)
 {
   $arr_fn_parts     = [];
   $arr_mn_ret_value = [];
@@ -662,47 +646,48 @@ function create_mapping ($str_par_file_path)
   $bool_result = file_exists ($str_par_file_path);
   
   if ($bool_result === false) {
-    log_message ("create_mapping.file_does_not_exist", "error");
+    art_log_message ("art_create_mapping.file_does_not_exist", "error");
+	art_log_message ($str_par_file_path, "error");
     return false;	
   }	  
   
   $res_fn_handle = fopen ($str_par_file_path, "r"); // ret.: resource/false.
   
   if ($res_fn_handle === false) { 
-    log_message ("create_mapping.fopen", "error");
+    art_log_message ("art_create_mapping.fopen", "error");
     return false;	
   }
 
-  // Der Header wird ueberlesen.
+  // === Der Header wird ueberlesen. ===================================================================================
   while (true) {
     $str_fn_line = fgets ($res_fn_handle); // ret.: str./false.
     if ($str_fn_line === false) {
-      log_message ("create_mapping.header_fgets", "error");
+      art_log_message ("art_create_mapping.header_fgets", "error");
       return false;			
     }	
 	
-    log_message ("create_mapping.header_line", "info");
-    log_message ($str_fn_line, "info");
+    art_log_message ("create_mapping.header_line", "info");
+    art_log_message ($str_fn_line, "info");
 	    
     $bool_result = artos_str_starts_with ($str_fn_line, "#data-start");
     if ($bool_result === true) {
-      log_message ("Punkt erreicht", "info");
+      art_log_message ("Punkt erreicht", "info");
       break;
     }
   }
 
-  log_message ("Daten.", "info");
+  art_log_message ("Daten.", "info");
 
   // Nun werden die Daten verarbeitet.
   while (true) {
     $str_fn_line = fgets ($res_fn_handle);
     if ($str_fn_line === false) {
-      log_message ("create_mapping.data_fgets", "error");
+      art_log_message ("art_create_mapping.data_fgets", "error");
       return false;			
     }
     $str_fn_line = rtrim ($str_fn_line);
-    log_message ("Zeile.", "info");
-    log_message ($str_fn_line, "info");
+    art_log_message ("Zeile.", "info");
+    art_log_message ($str_fn_line, "info");
 
     // === Kommentare werden einfach ueberlesen. =======================================================================
     $bool_result = artos_str_starts_with ($str_fn_line, "##");
@@ -713,66 +698,65 @@ function create_mapping ($str_par_file_path)
     // === Das ist die Abbruchsbedingung. ==============================================================================
     $bool_result = artos_str_starts_with ($str_fn_line, "#data-end");    
     if ($bool_result === true) {
-      log_message ("Datei-Ende erreicht", "info");		
+      art_log_message ("Datei-Ende erreicht", "info");		
       break;	  	
     }
 
-    log_message ("Zeile 2.", "info");
+    art_log_message ("Zeile 2.", "info");
 
     // === Die Name-Value-Paare werden nun verarbeitet. ================================================================
     // last_name|Falcone
     $int_pos = strpos ($str_fn_line, "|"); // ret.: int/false.
     if ($int_pos !== false) {
-      log_message ("pipe verar.", "info");
+      art_log_message ("pipe verar.", "info");
       $arr_fn_parts = explode ("|", $str_fn_line, 2);
       $str_fn_name  = trim ($arr_fn_parts [0]);	  
       $str_name_ext = "{{" . $str_fn_name . "}}";         	  
       $str_fn_value = trim ($arr_fn_parts [1]);	  	  
       $arr_mn_ret_value [$str_name_ext] = $str_fn_value;
 
-      log_message ("Pipe: {$str_fn_name} {$str_fn_value}", "info");		
+      art_log_message ("Pipe: {$str_fn_name} {$str_fn_value}", "info");		
     }
     else {
       // evidence#value-start
-      $bool_result = str_check_hash ($str_fn_line); // ret.: bool.
+      $bool_result = art_check_block ($str_fn_line); // ret.: bool.
       if ($bool_result === true) {
-        log_message ("Hash start", "info");
+        art_log_message ("Block start", "info");
 
-        $str_name     = get_hash_name ($str_fn_line);  
-        $str_name_ext = "{{" . $str_name . "}}";
-        $str_value    = get_hash_value ($handle); // ret: str/false.
-
-        if ($str_value === false) {
-          log_message ("create_mapping.hash-value", "error");
+        $str_fn_name  = art_get_block_name ($str_fn_line);  
+        $str_name_ext = "{{" . $str_fn_name . "}}";
+        
+		$str_fn_value = art_get_block_value ($res_fn_handle); // ret: str/false.
+        if ($str_fn_value === false) {
+          art_log_message ("art_create_mapping.art_get_block_value", "error");
           return false;
         }
 
-        $arr_ret_value [$str_name_ext] = $str_value;
+        $arr_mn_ret_value [$str_name_ext] = $str_fn_value;
 
-        log_message ("Hash: {$str_name} {$str_value}", "info");
+        art_log_message ("Block: {$str_fn_name} {$str_fn_value}", "info");
       }
       else {
         // evidence#array-start
-        $bool_result = str_check_array ($str_line); // ret.: bool.
+        $bool_result = art_check_array ($str_fn_line); // ret.: bool.
         if ($bool_result === true) {
-          log_message ("Array start", "info");
+          art_log_message ("Array start", "info");
 
-          $str_name     = get_array_name ($str_line);
-          $str_name_ext = "{{" . $str_name . "}}";
-          $str_value    = get_array_value ($handle); // ret: str/false.
-
-          if ($str_value === false) {
-            log_message ("create_mapping.array-value", "error");
+          $str_fn_name  = art_get_array_name ($str_fn_line);
+          $str_name_ext = "{{" . $str_fn_name . "}}";
+		  
+          $str_fn_value = art_get_array_value ($res_fn_handle); // ret: str/false.
+          if ($str_fn_value === false) {
+            art_log_message ("art_create_mapping.art_get_array_value", "error");
             return false;
           }
 
-          $arr_ret_value [$str_name_ext] = $str_value;
+          $arr_mn_ret_value [$str_name_ext] = $str_fn_value;
         }
       } // check_array
     }
 
   } // while	  
 
-  return $arr_ret_value;
+  return $arr_mn_ret_value;
 }
-

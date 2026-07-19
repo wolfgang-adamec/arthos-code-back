@@ -85,15 +85,18 @@ fun.5: artos_str_starts_with   (arthos_code_lib.php)
 
 art_check_array         (artos_code_fun.php) ok
 art_check_block         (artos_code_fun.php) ok
+art_check_name_value    (artos_code_fun.php) ok
+art_create_mapping      (artos_code_fun.php) ok
 art_find_entry          (artos_code_fun.php) ok
+art_get_array_value     (artos_code_fun.php) ok
 art_get_block_name      (artos_code_fun.php) ok
 art_get_block_value     (artos_code_fun.php) ok
 art_get_array_name      (artos_code_fun.php) ok 
 art_get_full_file_name  (artos_code_fun.php) ok 
 art_log_message         (artos_code_fun.php) ok 
 art_prepare_card        (artos_code_fun.php)
-
-
+art_scan_query_string   (artos_code_fun.php) ok
+art_str_starts_with     (artos_code_fun.php) ok
 
 
 
