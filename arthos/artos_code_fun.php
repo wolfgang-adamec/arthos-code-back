@@ -131,7 +131,7 @@ function art_get_full_file_name ($str_par_base_dir, $str_par_name_part)
     $str_mn_full_file_name = basename ($str_file_path);
   }
   else {
-    $str_mn_full_file_name = art_find_entry ($arr_dateien, $int_name_part_len);
+    $str_mn_full_file_name = art_find_entry ($arr_fn_file_names, $int_fn_name_part_len);
   }
 
   return $str_mn_full_file_name;
@@ -215,7 +215,7 @@ function art_get_block_name ($str_par_line)
   $int_fn_pos        = strpos ($str_par_line, "#value-start"); // ret.: int/false.
   $str_mn_block_name = substr ($str_par_line, 0, $int_fn_pos);  
 
-  art_log_message ("hash name",        "info");
+  art_log_message ("block name",        "info");
   art_log_message ($str_mn_block_name, "info");
 
   return $str_mn_block_name;
@@ -276,7 +276,7 @@ function art_get_block_value ($res_par_handle)
 	}	
 	
 	#value-end  
-    $bool_result = artos_str_starts_with ($str_fn_line, "#value-end");
+    $bool_result = art_str_starts_with ($str_fn_line, "#value-end");
     if ($bool_result === false) {	
 	  art_log_message ("block-data", "info");	
 	  art_log_message ($str_fn_line, "info");	
@@ -309,7 +309,7 @@ function art_get_block_value ($res_par_handle)
  * Diese Funktion bearbeitet einen Array-Datensatz im ART-Datenformat.         *
  * Return: string | false.                                                     *                                                                       
  *******************************************************************************/
-function art_get_array_value ($res_par_handle)
+function art_get_array_value ($res_par_handle, $str_par_lang)
 { 
   $bool_result        = false;
   $bool_start         = true;
@@ -330,25 +330,25 @@ function art_get_array_value ($res_par_handle)
     }	
 	
     #array-end  
-    $bool_result = artos_str_starts_with ($str_fn_line, "#value-end");
+    $bool_result = art_str_starts_with ($str_fn_line, "#array-end");
     if ($bool_result === false) {	
       art_log_message ("array-data", "info");	
       art_log_message ($str_fn_line, "info");		  
 
       $int_pos = strpos ($str_fn_line, "|"); // ret.: int/false.
       if ($int_pos === false) {
-        log_message ("art_get_array_value.no-pipe", "error");
+        art_log_message ("art_get_array_value.no-pipe", "error");
         return false;
       }
       $arr_fn_parts = explode ("|", $str_fn_line, 2); // 3. Parameter = limit.
       $str_name     = trim ($arr_fn_parts [0]);	  
       $str_id       = trim ($arr_fn_parts [1]);	  	  
       
-      $str_mn_array_value .= "<tr><td>" . $str_name . "</td><td class=\"id-col\">" . $str_id . "</td></tr>";
+      $str_mn_array_value .= "<tr><td><a href=\"show_lexeme.php?id=" . $str_id . "&lang=" . $str_par_lang . "&format=" . "normal" . "\" class=\"person-link\">" . $str_name . "</td><td class=\"id-col\">" . $str_id . "</td></tr>";
     }
     else {
       art_log_message ("array_value", "info");
-      art_log_message ($str_array_value, "info");
+      art_log_message ($str_mn_array_value, "info");
 	  
       return $str_mn_array_value;	
     }
@@ -378,7 +378,7 @@ function art_scan_query_string ($arr_par_query_str)
   $str_value       = "";
   
   $int_fn_anzahl = count ($arr_par_query_str);
-  if (($int_fn_anzahl !== 2) && ($int_anzahl !== 3)) {
+  if (($int_fn_anzahl !== 2) && ($int_fn_anzahl !== 3)) {
     art_log_message ("art_scan_query_str.error-count", "error");
     return false;	  
   }
@@ -505,10 +505,10 @@ function art_str_starts_with ($str_par_value, $str_par_substr)
   $int_fn_len_substr = strlen ($str_par_substr);
   $str_fn_substr     = substr ($str_par_value, 0, $int_fn_len_substr);
 
-  art_log_message ("sub",           "info");
-  art_log_message ($str_par_substr, "info");
-  art_log_message ("norm",          "info");
-  art_log_message ($str_fn_substr,  "info");
+  // art_log_message ("sub",           "info");
+  // art_log_message ($str_par_substr, "info");
+  // art_log_message ("norm",          "info");
+  // art_log_message ($str_fn_substr,  "info");
   
   if ($str_par_substr === $str_fn_substr) {
     return true;
@@ -586,7 +586,7 @@ function art_prepare_card ($str_par_code, $str_par_base_dir)
 
   // Aus dem Inhalt der ART-Datei wird fuer das HTML-Template ein Mapping erstellt.
   // The function "art_create_mapping" creates a mapping from the ART file, and this mapping is used later for the html template.
-  $arr_fn_data_map = art_create_mapping ($str_fn_file_name_full); 
+  $arr_fn_data_map = art_create_mapping ($str_fn_file_name_full, $str_web_lang); 
   art_log_mapping ($arr_fn_data_map);  
   if ($arr_fn_data_map === false) {
     art_log_message ("art_prepare_card.art_create_mapping", "error");	
@@ -629,7 +629,7 @@ function art_prepare_card ($str_par_code, $str_par_base_dir)
  *                                                                             *
  * Return value: Mapping (Ass. Array) | false.                                 *                                                                                       
  *******************************************************************************/
-function art_create_mapping ($str_par_file_path)
+function art_create_mapping ($str_par_file_path, $str_par_lang)
 {
   $arr_fn_parts     = [];
   $arr_mn_ret_value = [];
@@ -669,7 +669,7 @@ function art_create_mapping ($str_par_file_path)
     art_log_message ("create_mapping.header_line", "info");
     art_log_message ($str_fn_line, "info");
 	    
-    $bool_result = artos_str_starts_with ($str_fn_line, "#data-start");
+    $bool_result = art_str_starts_with ($str_fn_line, "#data-start");
     if ($bool_result === true) {
       art_log_message ("Punkt erreicht", "info");
       break;
@@ -690,13 +690,13 @@ function art_create_mapping ($str_par_file_path)
     art_log_message ($str_fn_line, "info");
 
     // === Kommentare werden einfach ueberlesen. =======================================================================
-    $bool_result = artos_str_starts_with ($str_fn_line, "##");
+    $bool_result = art_str_starts_with ($str_fn_line, "##");
     if ($bool_result === true) {
       continue;	  	
     }
 	
     // === Das ist die Abbruchsbedingung. ==============================================================================
-    $bool_result = artos_str_starts_with ($str_fn_line, "#data-end");    
+    $bool_result = art_str_starts_with ($str_fn_line, "#data-end");    
     if ($bool_result === true) {
       art_log_message ("Datei-Ende erreicht", "info");		
       break;	  	
@@ -745,7 +745,7 @@ function art_create_mapping ($str_par_file_path)
           $str_fn_name  = art_get_array_name ($str_fn_line);
           $str_name_ext = "{{" . $str_fn_name . "}}";
 		  
-          $str_fn_value = art_get_array_value ($res_fn_handle); // ret: str/false.
+          $str_fn_value = art_get_array_value ($res_fn_handle, $str_par_lang); // ret: str/false.
           if ($str_fn_value === false) {
             art_log_message ("art_create_mapping.art_get_array_value", "error");
             return false;
