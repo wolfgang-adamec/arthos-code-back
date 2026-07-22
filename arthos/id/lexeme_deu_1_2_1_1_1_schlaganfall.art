@@ -1,0 +1,92 @@
+####arthos-data/arthos-enc/1.0####
+#header-start###############################################################################
+#dokument:  lexeme_deu_1_2_1_1_1_schlaganfall.art.                                         #
+#author:    Wolfgang Adamec.                                                               #
+#date:      2026/07/22.                                                                    #
+#license:   cc by-sa 4.0.                                                                  #
+#source_1:  -                                                                              #
+#header-end#################################################################################
+##
+#data-start
+## "1" ... nouns, "2" ... social terms, "1" ... social relational terms, "1" ... kinship terms.
+public_id|1.2.1.1.1
+##
+## This is the iso 639-3 code for the language.
+lang|deu
+##
+lang_full_name|Deutsch
+##
+hypernym|Existentielle Erlebnisse 
+##
+## This ist the core "ingredient" of this artos-data file.
+value|schlaganfall
+##
+value_detail|-
+##
+## Das ist eine kurz-Definition.
+definition_short|-
+##
+definition_detail#value-start
+  <p>Vor einem Schlaganfall steht ein Potential zur Gerinselbildung im Blut.
+  
+  </p>
+  <p></p>
+#value-end
+##
+similar_lexemes|pater (lateinisch), padre (ital.), father (engl.), pater (altgriech.).
+##
+reference_sentence#value-start
+  Rosegger, Peter: Als ich noch ein Waldbauernbub war. Kapitel "Von meinen Vorfahren": 
+  Das, was ich von meinen Ahnen weiß, hat mir größtenteils mein Vater erzählt, er hat besonders in seinen alten Tagen gerne davon gesprochen.
+#value-end  
+##
+#data-end
+
+https://youtu.be/P0sRFR-uXyY?si=sdLWigHso5zhYb03
+
+Schlaganfall.
+Blutgerinnsel (Thrombus)
+
+Verstopfung eines Gefäßes im Gehirn.
+Dazu kann es kommen durch ein Gerinsel, das sich im Blut gebildet hat.
+Aber auch durch Ablagerungen, die in einem Gefäß entstanden sind und sich dort gelöst haben (Plag).
+=> Ischämischer Schlaganfall. häufigste Form.
+=> Hämorrhagischer Schlaganfall. Es platzt im Gehirn ein Gefäß und es kommt im Gehirn zu einer Blutung.
+
+Also entweder durch ein Gerinnsel (Thrombus) oder durch ein Plag, das sich gelöst hat.
+
+Das Gewebe, das hinter dem Blutgefäß ist und auf die Versorgung angewiesen ist, nicht mehr mit Nährstoffen und Sauerstoff versorgt werden kann.
+
+Also es kommt zu einer Unterversorgung.
+
+Blutgerinnsel können sich zum Beispiel bei Herz-Rhytmus-Störungen bilden können.
+Plugs (Plaques = Ablagerung) oder Ablagerungen in den Gefäßen, die besonders in der Halsschlagader dafür sorgen können
+
+Welche Hirnregion, welches Hirnareal betroffen ist.
+
+Lähmungserscheinungen auf 1 Körperseite.
+
+Blutgerinnsel medikamentös auflösen.
+Mit Instrumenten das Blutgerinnsel aus dem Gefäß herauszuzuiehen.
+
+https://youtu.be/fUDqTjTYFcw?si=HkCPr5fxWVktTcmw
+
+Energie-Haushalt
+26. April 2020
+Sie lag am Boden und konnte nicht mehr aufstehen.
+Schwindel-Gefühl.
+Sie hatte ein Aneurysma in der Halsarterie und diese ist gerissen
+
+Mentale Stärke
+
+
+
+
+
+
+
+
+
+
+
+
